@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JDK环境的配置 下载并安装后，打开软件。点击界面右下角“Configure”，点击“Project Defaults”，点击“Project Structure”。 点击“New”，点击“JDK”。 选择JDK所在目录，点击“OK”。 点击“Apply”，点击“OK”，JDK环境配置结束。    JavaSE工程的创建 打开软件，点击“Create New Project”。 一直点击“Next">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4-集成开发环境IDEA">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="JDK环境的配置 下载并安装后，打开软件。点击界面右下角“Configure”，点击“Project Defaults”，点击“Project Structure”。 点击“New”，点击“JDK”。 选择JDK所在目录，点击“OK”。 点击“Apply”，点击“OK”，JDK环境配置结束。    JavaSE工程的创建 打开软件，点击“Create New Project”。 一直点击“Next">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/IDEA配置_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/IDEA配置_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/IDEA配置_3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/IDEA配置_4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_10.png">
+<meta property="og:updated_time" content="2019-03-09T12:56:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4-集成开发环境IDEA">
+<meta name="twitter:description" content="JDK环境的配置 下载并安装后，打开软件。点击界面右下角“Configure”，点击“Project Defaults”，点击“Project Structure”。 点击“New”，点击“JDK”。 选择JDK所在目录，点击“OK”。 点击“Apply”，点击“OK”，JDK环境配置结束。    JavaSE工程的创建 打开软件，点击“Create New Project”。 一直点击“Next">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/IDEA配置_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/">
+
+
+
+
+
+  <title>4-集成开发环境IDEA | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/4-集成开发环境IDEA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">4-集成开发环境IDEA</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T16:46:20+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/Java语言/" itemprop="url" rel="index">
+                    <span itemprop="name">Java语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/Java语言/入门篇/" itemprop="url" rel="index">
+                    <span itemprop="name">入门篇</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JDK环境的配置"><a href="#JDK环境的配置" class="headerlink" title="JDK环境的配置"></a>JDK环境的配置</h1><ul>
+<li>下载并安装后，打开软件。点击界面右下角“Configure”，点击“Project Defaults”，点击“Project Structure”。<img src="/2019/03/01/4-集成开发环境IDEA/IDEA配置_1.png" title="IDEA配置_1"></li>
+<li>点击“New”，点击“JDK”。<img src="/2019/03/01/4-集成开发环境IDEA/IDEA配置_2.png" title="IDEA配置_2"></li>
+<li>选择JDK所在目录，点击“OK”。<img src="/2019/03/01/4-集成开发环境IDEA/IDEA配置_3.png" title="IDEA配置_3"></li>
+<li>点击“Apply”，点击“OK”，JDK环境配置结束。<img src="/2019/03/01/4-集成开发环境IDEA/IDEA配置_4.png" title="IDEA配置_4">
+</li>
+</ul>
+<hr>
+<h1 id="JavaSE工程的创建"><a href="#JavaSE工程的创建" class="headerlink" title="JavaSE工程的创建"></a>JavaSE工程的创建</h1><ul>
+<li>打开软件，点击“Create New Project”。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_1.png" title="创建JavaSE工程_1"></li>
+<li>一直点击“Next”。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_2.png" title="创建JavaSE工程_2"></li>
+<li>输入新创建工程的名字并更改工程所在目录，点击“Finish”。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_3.png" title="创建JavaSE工程_3"></li>
+<li>第一次创建工程后需要先进行一些设置，点击菜单栏“View”，将“Toolbar”和“Tool Buttons”进行勾选，使隐藏的工具栏能正常显示出来。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_4.png" title="创建JavaSE工程_4"></li>
+<li>选中左侧“Project”窗口中的“src”，右键“New”，点击“Package”来创建包。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_5.png" title="创建JavaSE工程_5"></li>
+<li>输入包名，点击“OK”。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_6.png" title="创建JavaSE工程_6"></li>
+<li>再选中刚刚新创建的包，右键“New”，点击“Java Class”来创建类。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_7.png" title="创建JavaSE工程_7"></li>
+<li>输入类名，点击“OK”。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_8.png" title="创建JavaSE工程_8"></li>
+<li>这时候可以正常进行代码的编写了。代码编写完以后，右键“Run”。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_9.png" title="创建JavaSE工程_9"></li>
+<li>若代码能正常运行，则成功。<img src="/2019/03/01/4-集成开发环境IDEA/创建JavaSE工程_10.png" title="创建JavaSE工程_10">
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/01/3-HelloWorld/" rel="next" title="3-HelloWorld">
+                <i class="fa fa-chevron-left"></i> 3-HelloWorld
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/02/5-数据类型与变量/" rel="prev" title="5-数据类型与变量">
+                5-数据类型与变量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK环境的配置"><span class="nav-number">1.</span> <span class="nav-text">JDK环境的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaSE工程的创建"><span class="nav-number">2.</span> <span class="nav-text">JavaSE工程的创建</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>

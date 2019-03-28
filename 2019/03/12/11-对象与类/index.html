@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="面向对象程序设计（OOP）概述面向对象程序设计（简称OOP）是当今主流的程序设计范型，它已经取代了20世纪70年代的“结构化”过程化程序设计开发技术。Java是完全面向对象的，必须熟悉OOP才能够编写Java程序。 面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏实现部分。程序中的很多对象来自标准库，还有一些是自定义的。究竟是自己构造对象，还是从外界购买对象完全取决开发项目">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="11-对象与类">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/11-对象与类/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="面向对象程序设计（OOP）概述面向对象程序设计（简称OOP）是当今主流的程序设计范型，它已经取代了20世纪70年代的“结构化”过程化程序设计开发技术。Java是完全面向对象的，必须熟悉OOP才能够编写Java程序。 面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏实现部分。程序中的很多对象来自标准库，还有一些是自定义的。究竟是自己构造对象，还是从外界购买对象完全取决开发项目">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/12/11-对象与类/第一种选择.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/12/11-对象与类/第二种选择.png">
+<meta property="og:updated_time" content="2019-03-17T09:45:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="11-对象与类">
+<meta name="twitter:description" content="面向对象程序设计（OOP）概述面向对象程序设计（简称OOP）是当今主流的程序设计范型，它已经取代了20世纪70年代的“结构化”过程化程序设计开发技术。Java是完全面向对象的，必须熟悉OOP才能够编写Java程序。 面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏实现部分。程序中的很多对象来自标准库，还有一些是自定义的。究竟是自己构造对象，还是从外界购买对象完全取决开发项目">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/12/11-对象与类/第一种选择.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/12/11-对象与类/">
+
+
+
+
+
+  <title>11-对象与类 | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/11-对象与类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">11-对象与类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T21:02:38+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/Java语言/" itemprop="url" rel="index">
+                    <span itemprop="name">Java语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/Java语言/入门篇/" itemprop="url" rel="index">
+                    <span itemprop="name">入门篇</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="面向对象程序设计（OOP）概述"><a href="#面向对象程序设计（OOP）概述" class="headerlink" title="面向对象程序设计（OOP）概述"></a>面向对象程序设计（OOP）概述</h1><p>面向对象程序设计（简称OOP）是当今主流的程序设计范型，它已经取代了20世纪70年代的“结构化”过程化程序设计开发技术。Java是完全面向对象的，必须熟悉OOP才能够编写Java程序。</p>
+<p>面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏实现部分。程序中的很多对象来自标准库，还有一些是自定义的。究竟是自己构造对象，还是从外界购买对象完全取决开发项目的预算和时间。但是，从根本上说，只要对象能够满足要求，就不必关心其功能的具体实现过程。在OOP中，不必关心对象的具体实现，只要能满足用户的需求即可。</p>
+<p>传统的结构化程序设计通过设计一系列的过程（即算法）来求解问题。一旦确定了这些过程，就要开始考虑存储数据的方式。算法+数据结构=程序。需要注意的是，结构化程序设计里算法是第一位的，数据结构是第二位的，这就明确地表述了程序员的工作方式。首先要确定如何操作数据，然后再决定如何组织数据，以便于数据操作。而OOP却调换了这个次序，将数据放在第一位，然后再考虑操作数据的算法。</p>
+<p>对于一些规模较小的问题，将其分解为过程开发的方式比较理想。而面向对象更加试用于解决规模较大的问题。例如：要想实现一个简单的Web浏览器可能需要大约2000个过程，这些过程可能需要对一组全局数据进行操作。采用面向对象的设计风格，可能只需要大约100个类，每个类平均包含20个方法。后者更易于程序员掌握，也容易找到bug。假设给定对象的数据出错了，在访问过这个数据项的20个方法中查找错误要比在2000个过程中查找容易得多。</p>
+<hr>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>类（class）是构造对象的模板或蓝图。由类构造（construct）对象的过程称为创建类的实例（instance）。</p>
+<p>用Java编写的所有代码都位于某个类的内部。通常，这些类没有main方法，却有自己的实例域和实例方法。要想创建一个完整的程序，应该将若干个类组合在一起，其中只有一个类有main方法。</p>
+<h2 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h2><ul>
+<li><p>依赖（dependence）：即”uses-a”关系，是一种最明显、最常见的关系。如果一个类的方法操纵另一个类的对象，我们就说一个类依赖于另一个类。应该尽可能地将相互依赖的类减至最少。如果类A不知道B的存在，它就不会关心B的任何改变（这意味着B的改变不会导致A产生任何bug）。用软件工程的术语来说，就是让类之间的耦合度最小。</p>
+</li>
+<li><p>聚合（aggregation）：即“has-a”关系，是一种具体且易于理解的关系。例如一个对象包含一些其他对象。聚合关系意味着类A的对象包含着类B的对象。</p>
+</li>
+<li><p>继承（inheritance）：即“is-a”关系，是一种用于表示特殊与一般关系的。一般而言，如果类A扩张类B，类A不但包含从类B继承的方法，还会拥有一些额外的功能。</p>
+</li>
+</ul>
+<h2 id="类的分类"><a href="#类的分类" class="headerlink" title="类的分类"></a>类的分类</h2><ul>
+<li>预定义类：在Java类库中，已经提供了一些类，例如：与输入有关的Scanner。用户在编写程序的过程中，如果有需要可以直接使用，而不必再进行设计。使用预定义类构造对象，以及如何使用预定义类的方法都与用户自定义类的操作一样。</li>
+<li>自定义类：用户在编写程序的过程中，如果需要使用类库中没有的类，就要在Java程序中创建一些自己的类，以便描述应用程序所对应的问题域中的对象。</li>
+</ul>
+<h2 id="类定义形式"><a href="#类定义形式" class="headerlink" title="类定义形式"></a>类定义形式</h2><p>在Java中，最简单的类定义形式为。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span> </span>&#123;</span><br><span class="line">  field1</span><br><span class="line">  field2</span><br><span class="line">  ......</span><br><span class="line">  constructor1</span><br><span class="line">  constructor2</span><br><span class="line">  ......</span><br><span class="line">  method1</span><br><span class="line">  method2</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面给出一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level;                 <span class="comment">//等级</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String attribute;    <span class="comment">//属性</span></span><br><span class="line">  <span class="keyword">private</span> String master;             <span class="comment">//主人</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a, String m)</span> </span>&#123;</span><br><span class="line">    level = l;</span><br><span class="line">    attribute = a;</span><br><span class="line">    master = m;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getMaster</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> master;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeMaster</span><span class="params">(String m)</span> </span>&#123;</span><br><span class="line">    master = m;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="实例域"><a href="#实例域" class="headerlink" title="实例域"></a>实例域</h3><p>实例域一般用来存放将要操作的数据。例如：在上面的Pikaqiu类的实例中有三个实例域用来存放将要操作的数据：</p>
+<ul>
+<li>private int level;</li>
+<li>private final String attribute;</li>
+<li>private String master;</li>
+</ul>
+<p>请注意，有两个实例域本身就是对象：attribute域是String类对象，master域是String类对象。这种情形十分常见：类通常包括类型属于某个类类型的实例域。</p>
+<h4 id="private实例域"><a href="#private实例域" class="headerlink" title="private实例域"></a>private实例域</h4><p>关键字private确保只有Pikaqiu类自身的方法能够访问这些实例域，而其他类的方法不能够读写这些域。</p>
+<p>需要注意的是，可以用public标记实例域，但这是一种极为不提倡的做法。public数据域允许程序中的任何方法对其进行读取和修改。这就完全破坏了封装。任何类的任何方法都可以修改public域，从经验来看，某些代码将使用这种存取权限，而这并不是我们希望的，因此，强烈建议将实例域标记为private。</p>
+<h4 id="final实例域"><a href="#final实例域" class="headerlink" title="final实例域"></a>final实例域</h4><p>可以将实例域定义为final。构建对象时必须初始化这样的域。也就是说，必须确保在每一个构造器执行之后，这个域的值被设置，并且在后面的操作中，不能够再对它进行修改。例如：Pikaqiu类中的attribute域声明为final，因为在对象构建之后，这个值不会再被修改，即没有setAttribute方法。</p>
+<p>final修饰符大都应用于基本类型域，或不可变类的域（如果类中的每个方法都不会改变其对象，这种类就是不可变的类。例如，String类就是一个不可变的类）。</p>
+<p>对于可变的类，使用final修饰符可能会对读者造成混乱。</p>
+<h3 id="静态域与静态常量"><a href="#静态域与静态常量" class="headerlink" title="静态域与静态常量"></a>静态域与静态常量</h3><h4 id="静态域"><a href="#静态域" class="headerlink" title="静态域"></a>静态域</h4><p>如果将域定义为static，这个域（静态域）将被这个类产生的所有对象共享。而每一个对象对于所有的实例域却都有自己的一份拷贝。例如：这里给Pikaqiu类添加一个静态域no。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> no = <span class="number">25</span>;    <span class="comment">//静态域</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level;             <span class="comment">//实例域</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在，每一个Pikaqiu对象都有一个自己的level域，但这个类的所有实例将共享一个no域。话句话说，如果有1000个Pikaqiu类的对象，则有1000个实例域level。但是，只有一个静态域no。即使没有一个Pikaqiu对象，静态域no也存在。它属于类，而不属于任何独立的对象。</p>
+<h4 id="静态常量"><a href="#静态常量" class="headerlink" title="静态常量"></a>静态常量</h4><p>静态变量使用的比较少，但静态常量却使用的比较多。例如：将上面的no定义成静态常量NO。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NO = <span class="number">25</span>;    <span class="comment">//静态域</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level;                  <span class="comment">//实例域</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在程序中，可以采用Pikaqiu.NO的形式获得这个常量。</p>
+<p>如果关键字static被省略，NO就变成了Pikaqiu类的一个实例域。需要通过Pikaqiu类的对象访问NO，并且每一个Pikaqiu对象都有它自己的一份NO拷贝。</p>
+<p>由于每个类对象都可以对公有域进行修改，所以，最好不要将域设计为public。然而，公有常量（即final域）却没问题。</p>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><p>构造器一般用于初始化实例域。构造器是一种特殊的方法，用来构造并初始化对象。构造器与类同名。例如：在构造Pikaqiu类的对象时，构造器会运行，以便将实例域初始化为所希望的状态。当使用下面这条代码创建Pikaqiu实例时：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pikaqiu pika = <span class="keyword">new</span> Pikaqiu(<span class="number">99</span>, <span class="string">"电系"</span>, <span class="string">"小智"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>将会把实例域设置为：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">level = <span class="number">99</span>;</span><br><span class="line">attribute = <span class="string">"电系"</span>;</span><br><span class="line">master = <span class="string">"小智"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>构造器与其他的方法有一个重要的不同。构造器总是伴随着new操作符的执行被调用，而不能对一个已经存在的对象调用构造器开达到重新设置实例域的目的。例如，当使用下面这条代码重新设置Pikaqiu实例时将产生编译错误：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pika.Pikaqiu(<span class="number">0</span>, <span class="string">"电系"</span>, <span class="string">"小茂"</span>);    <span class="comment">//ERROR</span></span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>构造器与类同名</li>
+<li>每个类可以有一个以上的构造器</li>
+<li>构造器可以有0个、1个或多个参数</li>
+<li>构造器没有返回值</li>
+<li>构造器总是伴随着new操作一起调用</li>
+<li>Java构造器的工作方式与C++一样。但是，要记住所有的Java对象都是在堆中构造的，构造器总是伴随着new操作符一起使用。</li>
+<li>不要在构造器中定义与实例域重名的局部变量。这个变量只能在构造器内部访问，且屏蔽了同名的实例域。这种程序很难被检查出来，因此，必须注意在所有的方法中不要命名与实例域同名的变量。例如，下面的构造器将无法设置level。格式（伪代码）如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a, String m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> level = l;    <span class="comment">//ERROR，局部变量与实例域重名</span></span><br><span class="line">    ......</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>方法一般用于操作对象以及存取它们的实例域。</p>
+<h4 id="方法的分类"><a href="#方法的分类" class="headerlink" title="方法的分类"></a>方法的分类</h4><h5 id="访问器方法和更改器方法"><a href="#访问器方法和更改器方法" class="headerlink" title="访问器方法和更改器方法"></a>访问器方法和更改器方法</h5><ul>
+<li><p>访问器方法：有些方法调用以后，调用方法的对象不做任何改动。只访问对象而不更改对象的方法称为访问器。例如：Pikaqiu类中的getMaster方法是访问器方法，只访问了对象的master实例域，并没有更改。</p>
+</li>
+<li><p>更改器方法：有些方法调用以后，调用方法的对象状态会发生改动。我们说这类方法更改了调用这类方法的对象。例如：Pikaqiu类中的changeMaster方法是更改器方法，更改了对象的master实例域。</p>
+</li>
+</ul>
+<h5 id="公有方法和私有方法"><a href="#公有方法和私有方法" class="headerlink" title="公有方法和私有方法"></a>公有方法和私有方法</h5><ul>
+<li>公有方法：绝大多数方法都被设计成共有的，在公有方法前会有public关键字，这表示任何类的任何方法都可以访问。</li>
+<li>私有方法：尽管绝大多数方法都被设计为共有的，但在某些特殊情况下，也可能将它们设计为私有的。有时，可能希望将一个计算机代码划分成若干个独立的辅助方法。通常，这些辅助方法不应该成为公有接口的一部分，这是由于它们往往与当前的实现机制非常紧密，或者需要一个特别的协议以及一个特别的调用次序。最好将这样的方法设计为private的。在Java中，为了实现一个私有的方法，只需将关键字public改为private即可。对于私有方法，如果改用其他方法实现相应的操作，则不必保留原有的方法。如果数据的表达式发生了变化，这个方法可能会变的难以实现，或者不再需要。然而，只要方法时私有的，类的设计者就可以确信：它不会被外部的其他类操作调用，可以将其删去。如果方法是共有的，就不能将其删去，因为其他的代码很可能依赖它。</li>
+</ul>
+<h5 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h5><p>静态方法是一种不能向对象实施操作的方法。可以认为静态方法是没有this参数的方法，即没有隐式的参数。类的静态方法不能访问实例域，因为它不能操作对象。但是，静态方法可以访问自身类中的静态域。例如：这里给Pikaqiu类添加一个静态域no和一个静态方法getNo。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> no = <span class="number">25</span>;    <span class="comment">//静态域</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> no;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以通过类名调用这个方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Pikaqiu.getNo());</span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>可以使用类或者对象来调用静态方法。例如：pika是一个Pikaqiu对象，可以用pika.getNo()来代替Pikaqiu.getNo()。不过，这种方式很容易造成混淆，其原因是getNo方法计算的结果与pika毫无关系。我们建议使用类名，而不是对象来调用静态方法。</li>
+<li>只能使用对象来调用非静态方法。例如：省略上面的静态方法getNo前面的关键字static，将getNo变为一个非静态方法，这时候就不能再通过类名Pikaqiu来调用getNo方法了，只能通过Pikaqiu类对象的引用调用这个方法。</li>
+<li>在下面两种情况下使用静态方法：一是方法不需要访问对象状态，其所需参数都是通过显示参数提供；二是一个方法只需要访问类的静态域。</li>
+</ul>
+<h5 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h5><p>静态方法的另一种常见的用途。（这方面的内容暂时先空一下）</p>
+<h5 id="main方法"><a href="#main方法" class="headerlink" title="main方法"></a>main方法</h5><p>不需要使用对象调用静态方法。同理，main方法也是一个静态方法。main方法不对任何对象进行操作。事实上，在启动程序时还没有任何一个对象。静态的main方法将执行并创建程序所需要的对象。</p>
+<p>每一个类可以有一个main方法。这是一个常用于对类进行单元测试的技巧。例如：可以在Pikaqiu类中添加一个main方法。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">  ......</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果想独立地测试Pikaqiu类，只需要执行：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java Pikaqiu</span><br></pre></td></tr></table></figure></p>
+<p>如果Pikaqiu类是一个更大型应用程序Application的一部分，就可以使用下面这条语句运行程序：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java Application</span><br></pre></td></tr></table></figure></p>
+<p>这样Pikaqiu类的main方法永远不会执行。</p>
+<h4 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h4><h5 id="隐式参数与显式参数"><a href="#隐式参数与显式参数" class="headerlink" title="隐式参数与显式参数"></a>隐式参数与显式参数</h5><p>以上面定义的Pikaqiu类的changeMaster方法为例，该方法有两个参数。第一个参数称为隐式参数，是出现在方法名前的Pikaqiu类对象。第二个参数位于方法名后面括号中的数值，这是一个显示参数（有些人把隐式参数称为方法调用的目标或接收者）。</p>
+<p>可以看到，显示参数是明显地列在方法声明中的，例如：changeMaster方法中的参数String m。隐式参数没有出现在方法声明中。</p>
+<p>在每一个方法中，关键字this表示隐式参数。如果需要的话，可以用下列方式编写changeMaster方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeMaster</span><span class="params">(String m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.master = m;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>有些程序员更偏爱这种风格，因为这样可以将实例域与局部变量明显地区分开来。</p>
+<h5 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h5><ul>
+<li><p>形参：在定义方法时，在方法名后面括号中的参数。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeMaster</span><span class="params">(String m)</span> </span>&#123;    <span class="comment">//参数m是形参</span></span><br><span class="line">    master = m;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实参：在调用方法时，在方法名后面括号中的参数。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String master1 = <span class="string">"小茂"</span>;</span><br><span class="line">pika.changeMaster(master1);    <span class="comment">//参数master1是实参</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="基本数据类型和对象引用"><a href="#基本数据类型和对象引用" class="headerlink" title="基本数据类型和对象引用"></a>基本数据类型和对象引用</h5><p>方法参数共有两种类型：</p>
+<ul>
+<li>基本数据类型（数字，布尔值）。</li>
+<li>对象引用。</li>
+</ul>
+<h5 id="Java中方法参数的传递方式"><a href="#Java中方法参数的传递方式" class="headerlink" title="Java中方法参数的传递方式"></a>Java中方法参数的传递方式</h5><p>“按……调用。”（call by）是一个标准的计算机科学术语，它用来描述各种程序设计语言（不只是Java）中方法参数的传递方式。一般分为：</p>
+<ul>
+<li>按值调用：表示方法接收的是调用者提供的值。</li>
+<li>按引用调用：表示方法接收的是调用者提供的变量地址。</li>
+<li>按名调用：Algol程序设计语言是最古老的高级程序设计语言之一，它使用的就是这种参数传递方式。不过，对于今天，这种传递方式已成为历史。</li>
+<li>……</li>
+</ul>
+<p>Java程序设计语言总是采用按值调用。也就是说，方法得到的是所有参数值的一个拷贝，特别是，方法不能修改传递给它的任何参数变量的内容。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String master1 = <span class="string">"小茂"</span>;</span><br><span class="line">pika.changeMaster(master1);    <span class="comment">//这里方法changeMaster的形参是m，实参是master1</span></span><br></pre></td></tr></table></figure></p>
+<p>不必理睬这个方法的具体实现，在方法调用之后，master1的值还是”小茂”。下面看一下具体的执行过程：</p>
+<ul>
+<li>m被初始化为master1值的一个拷贝（也就是”小茂”）。</li>
+<li>接下来执行方法具体过程时参数变量一直用的是m，没有用到master1，master1仍然是”小茂”。</li>
+<li>这个方法执行结束后，参数变量m不再使用。</li>
+</ul>
+<p>从上面可以看到，一个方法不可能修改一个基本数据类型的参数。而对象引用作为参数就不同了，实现一个改变对象参数状态地方法并不是一件难事。理由很简单，方法得到的是对象引用的拷贝，对象引用及其他的拷贝同时引用同一个对象。</p>
+<p>但是，这并不能认为Java程序设计语言对对象采用的是引用调用，实际上，对象引用是按值传递的。例如：Java并不能通过方法来改变存储在两个变量中的对象引用。</p>
+<p>下面总结一下Java中方法参数的使用情况：</p>
+<ul>
+<li>一个方法不能修改一个基本数据类型的参数（即数值型或布尔型）。</li>
+<li>一个方法可以改变一个对象参数的状态。</li>
+<li>一个方法不能让对象参数引用一个新的对象。</li>
+</ul>
+<h3 id="关键字小结"><a href="#关键字小结" class="headerlink" title="关键字小结"></a>关键字小结</h3><ul>
+<li>public与private：关键字private确保只有这个类自身的方法能够访问；关键字public表示任何类的任何方法都可以调用。且对象可以调用public实例域和public方法，但是对象调用private实例域和private方法时会报错。</li>
+<li>static：static域（静态域）属于类，而不属于任何独立的对象。这个域（静态域）将被这个类产生的所有对象共享。而static方法（静态方法）是一种不能向对象实施操作的方法。</li>
+<li>final：关键字final表示常量。</li>
+</ul>
+<h2 id="类设计技巧"><a href="#类设计技巧" class="headerlink" title="类设计技巧"></a>类设计技巧</h2><p>一定要保证数据私有：</p>
+<ul>
+<li>这是最重要的；绝对不要破坏封装性。</li>
+<li>有时候，需要编写一个访问器方法或更改器方法，但是最好还是保持实例域的私有性。很多惨痛的经验告诉我们，数据的表示形式很可能会改变，但它们的使用方式却不会经常发生变化。当数据保持私有时，它们的表示形式的变化不会对类的使用者产生影响，即使出现bug也易于检测。</li>
+</ul>
+<p>一定要对数据初始化：</p>
+<ul>
+<li>Java不对局部变量进行初始化，但是会对对象的实例域进行初始化。最好不要依赖于系统的默认值，而是应该显示地初始化所有的数据，具体地初始化方式可以是提供默认值，也可以是在所有构造器中设置默认值。</li>
+</ul>
+<p>不要在类中使用过多的基本类型：</p>
+<ul>
+<li>就是说，用其他的类代替多个相关的基本类型的使用。这样会使类型更加易于理解且易于修改。</li>
+</ul>
+<p>不是所有的域都需要独立的域访问器和域更改器：</p>
+<ul>
+<li>在对象中，常常包含一些不希望别人获得或设置的实例域。</li>
+</ul>
+<p>将职责过多的类进行分解：</p>
+<ul>
+<li>如果明显地可以将一个复杂的类分解成两个更为简单的类，就应该将其分解。但另一方面，也不要走极端。例如：设计10个类，每个类只有一个方法，显然有些矫枉过正了。</li>
+</ul>
+<p>类名和方法名要能够体现它们的职责：</p>
+<ul>
+<li>与变量应该有一个能够反映其含义的名字一样，类也应该如此。</li>
+<li>命名类名的良好习惯是采用一个名词或者前面有形容词修饰的名词或者前面有动名词修饰的名词。对于方法来说，习惯是动词加名词的形式。例如：访问器方法用小写get开头，更改器方法用小写set开头。</li>
+</ul>
+<p>优先使用不可变的类：</p>
+<ul>
+<li>不可变的就是指没有方法能修改对象的状态。不可变类的方法不是更改对象，而是返回状态已修改的新对象。</li>
+<li>更改对象的问题在于，如果多个线程试图同时更新一个对象，就会发生并发更改。其结果是不可预料的如果类是不可变的，就可以安全地在多个线程间共享其对象。</li>
+<li>因此，要尽可能让类是不可变的。</li>
+</ul>
+<hr>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>要想使用OOP，一定要清楚对象的三个主要特征：</p>
+<ul>
+<li>对象的行为（behavior）——可以对对象施加哪些操作或方法？</li>
+<li>对象的状态（state）——当施加那些方法时，对象如何响应？</li>
+<li>对象标识（identity）——如何辨别具有相同行为与状态的不同对象？</li>
+</ul>
+<p>同一个类的所有对象实例，由于支持相同的行为而具有家族式的相似性。对象的行为是用可调用的方法定义的。</p>
+<p>此外，每个对象都保存着描述当前特征的信息。这就是对象的状态。对象的状态可能会随着时间而发生改变，但这种改变不会是自发的。对象状态的改变必须通过调用方法实现（如果不经过方法调用就可以改变对象状态，只能说明封装性遭到了破坏）。</p>
+<p>但是，对象的状态并不能完全描述一个对象。每个对象都有一个唯一的身份（identity）。<br>任何两个对象都存在着不同，即使两个对象的状态完全相同也是如此。需要注意，作为一个类的实例，每个对象的标识永远时不同的，状态常常也存在着差异。</p>
+<p>对象的这些关键特性在彼此之间相互影响着。例如：对象的状态会影响它的行为。</p>
+<h2 id="对象与对象变量"><a href="#对象与对象变量" class="headerlink" title="对象与对象变量"></a>对象与对象变量</h2><p>要想使用对象，就必须首先构造对象，并指定其初始状态。（在Java程序设计语言中，使用构造器来构造新实例，且需要在构造器前面加上new操作符。）然后，对对象应用方法。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pikaqiu pika = <span class="keyword">new</span> Pikaqiu(<span class="number">99</span>, <span class="string">"电系"</span>, <span class="string">"小智"</span>);    <span class="comment">//构造Pikaqiu类对象</span></span><br><span class="line">pika.changeMaster(<span class="string">"小茂"</span>);                        <span class="comment">//对Pikaqiu类对象应用changeMaster方法</span></span><br></pre></td></tr></table></figure></p>
+<p>其中<code>Pikaqiu pika = new Pikaqiu(99, &quot;电系&quot;, &quot;小智&quot;);</code>语句等价于下面两条语句：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pikaqiu pika;</span><br><span class="line">pika = <span class="keyword">new</span> Pikaqiu(<span class="number">99</span>, <span class="string">"电系"</span>, <span class="string">"小智"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>注意：在对象与对象变量之间存在着一个重要的区别。</p>
+<p><code>Pikaqiu pika;</code>语句定义了一个变量pika，它可以引用Pikaqiu类型的对象。但是一定要认识到：变量pika不是一个对象，实际上也没有引用对象。此时，不能将任何Pikaqiu方法应用于这个变量上，否则将产生编译错误。</p>
+<p>在调用方法前必须先初始化这个变量，这里有两个选择：</p>
+<ul>
+<li>可以像上面的<code>pika = new Pikaqiu(99, &quot;电系&quot;, &quot;小智&quot;);</code>语句一样用新构造的对象初始化这个变量。第一种选择的原理如下图所示：<img src="/2019/03/12/11-对象与类/第一种选择.png" title="第一种选择"></li>
+<li>也可以让这个变量引用一个已存在的变量<code>pika = kaqiu;</code>（这里kaqiu是一个已存在的Pikaqiu类对象）。现在，这两个变量将引用同一个对象。第二种选择的原理如下图所示：<img src="/2019/03/12/11-对象与类/第二种选择.png" title="第二种选择">
+</li>
+</ul>
+<p>一定要认识到：一个对象变量并没有实际包含一个对象，而仅仅引用一个对象。</p>
+<p>在Java中，任何对象变量都是对存储在另外一个地方的一个对象的引用。new操作符的返回值也是一个引用。例如：在<code>Pikaqiu pika = new Pikaqiu(99, &quot;电系&quot;, &quot;小智&quot;);</code>语句中表达式<code>new Pikaqiu(99, &quot;电系&quot;, &quot;小智&quot;)</code>构造了一个Pikaqiu类型的对象，并且它的值是对新创建对象的引用。这个引用存储在变量pika中。</p>
+<p>可以显示地将对象变量设置为null，表明这个对象变量目前没有引用任何对象。例如：<code>Pikaqiu pika = null;</code>。如果将一个方法应用于一个值为null的对象上，那么就会产生运行时错误。</p>
+<p>局部变量不会自动化地初始化为null，而必须通过调用new或将它们设置为null进行初始化。</p>
+<h2 id="对象构造"><a href="#对象构造" class="headerlink" title="对象构造"></a>对象构造</h2><h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>有些类有多个构造器，可以定义对象的初始状态。</p>
+<p>这种特征叫重载。如果多个方法有相同的名字、不同的参数，便产生了重载。编译器必须挑选出具体执行哪个方法，它通过用各个方法给出的参数类型与特定方法调用所使用的值类型进行匹配来挑选出相应的方法。如果编译器找不到匹配的参数，就会产生编译时错误，因为根本不存在匹配，或者没有一个比其他的更好。（这个过程被称为重载解析）</p>
+<p>Java允许重载任何方法，而不只是构造器方法。因此，要完整地描述一个方法，需要指出方法名以及参数类型。这叫做方法的签名。例如：String类有4个称为indexOf的公有方法。它们的签名是：</p>
+<ul>
+<li>indexOf(int)</li>
+<li>indexOf(int, int)</li>
+<li>indexOf(String)</li>
+<li>indexOf(String, int)</li>
+</ul>
+<p>返回类型不是方法签名的一部分。也就是说，不能有两个名字相同、参数类型也相同却返回不同类型值的方法。</p>
+<h3 id="默认域初始化"><a href="#默认域初始化" class="headerlink" title="默认域初始化"></a>默认域初始化</h3><p>如果在构造器中没有显示地给域赋予初值，那么就会被自动地赋值为默认值：数值为0、布尔值为false、对象引用为null。然而，只有缺少程序经验的人才会这样做。确实，如果不明确地对域进行初始化，就会影响程序代码的可读性。</p>
+<p>这是域与局部变量的主要不同点。必须明确地初始化方法中的局部变量。但是，如果没有初始化类中的域，将会被自动初始化为默认值（0、false或null）。</p>
+<p>例如：将前面的Pikaqiu类进行如下修改。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level;                 <span class="comment">//等级</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String attribute;    <span class="comment">//属性</span></span><br><span class="line">  <span class="keyword">private</span> String master;             <span class="comment">//主人</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a)</span> </span>&#123;</span><br><span class="line">    level = l;</span><br><span class="line">    attribute = a;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在构造器中没有显示地给master域赋予初值，那么就会默认地将master域初始化为null。</p>
+<h3 id="无参数的构造器"><a href="#无参数的构造器" class="headerlink" title="无参数的构造器"></a>无参数的构造器</h3><p>很多类都包含一个无参数的构造函数，对象由无参数构造函数创建时，其状态会设置为适当的默认值。例如：可以给前面的Pikaqiu类增加一个无参数构造函数。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level;                 <span class="comment">//等级</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String attribute;    <span class="comment">//属性</span></span><br><span class="line">  <span class="keyword">private</span> String master;             <span class="comment">//主人</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a, String m)</span> </span>&#123;</span><br><span class="line">    level = l;</span><br><span class="line">    attribute = a;</span><br><span class="line">    master = m;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">()</span> </span>&#123;                 <span class="comment">//在原有构造函数基础下新增加一个无参数构造函数</span></span><br><span class="line">    level = <span class="number">99</span>;                      <span class="comment">//当用无参数构造函数构造Pikaqiu对象时，level实例域被设置为默认值99</span></span><br><span class="line">    attribute = <span class="string">"电系"</span>;              <span class="comment">//当用无参数构造函数构造Pikaqiu对象时，attribute实例域被设置为默认值"电系"</span></span><br><span class="line">    master = <span class="string">"小智"</span>;                 <span class="comment">//当用无参数构造函数构造Pikaqiu对象时，master实例域被设置为默认值"小智"</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果在编写一个类时没有编写构造器，那么系统就会提供一个无参数构造器。这个构造器将所有的实例域设置为默认值。于是，实例域中的数值型数据设置为0、布尔型数据设置为false、所有对象变量将设置为null。</p>
+<p>如果类中提供了至少一个构造器，但是没有提供无参数的构造器，则在构造对象时如果没有提供参数就会被视为不合法。例如：假设在Pikaqiu类中只提供了一个构造器：<code>Pikaqiu(int l, String a, String m)</code>。<br>对于这个类，构造默认的雇员属于不合法。也就是，调用<code>pika = new Pikaqiu();</code>将会产生错误。</p>
+<p>注意：</p>
+<ul>
+<li><p>仅当类没有提供任何构造器的时候，系统才会提供一个默认的构造器。如果在编写类的时候，给出了一个构造器，哪怕是很简单的，要想让这个类的用户能够采用类似<code>new ClassName()</code>的方式构造，就必须提供一个默认的构造器（即不带参数的构造器）。当然，如果希望所有域被赋予默认值，可以采用下列格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ClassName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于final实例域，系统不会赋予默认值。可以在声明中为final实例域赋值（即下面介绍的显示域初始化）。如果没有在声明中为final实例域赋值，必须在构造器中设置值。</p>
+</li>
+</ul>
+<h3 id="显示域初始化"><a href="#显示域初始化" class="headerlink" title="显示域初始化"></a>显示域初始化</h3><p>通过重载类的构造器方法，可以采用多种形式设置类的实例域的初始状态。确保不管怎样调用构造器，每个实例域都可以被设置为一个有意义的初值，这是一种很好的设计习惯。</p>
+<p>可以在类定义中，直接将一个值赋给任何域。例如：将前面的Pikaqiu类进行如下修改。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level = <span class="number">0</span>;             <span class="comment">//等级</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在执行构造器之前，先执行赋值操作。当一个类的所有构造器都希望把相同的值赋予某个特定的实例域时，这种方式特别有用。</p>
+<p>初始值不一定是常量值，也可以调用方法对域进行初始化。</p>
+<h3 id="参数名"><a href="#参数名" class="headerlink" title="参数名"></a>参数名</h3><p>在编写很小的构造器时（这时十分常见的），常常在参数命名上出现错误。</p>
+<p>通常，参数用单个字符命名。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a, String m)</span> </span>&#123;</span><br><span class="line">    level = l;</span><br><span class="line">    attribute = a;</span><br><span class="line">    master = m;</span><br><span class="line">  &#125;</span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但这样做有一个缺陷：只有阅读代码才能够了解参数l、a和m的含义。有些程序员在每个参数前面加上一个前缀“a”。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> aLevel, String aAttribute, String aMaster)</span> </span>&#123;</span><br><span class="line">    level = aLevel;</span><br><span class="line">    attribute = aAttribute;</span><br><span class="line">    master = aMaster;</span><br><span class="line">  &#125;</span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样很清晰，每个读者一眼就能看懂参数的含义。</p>
+<p>还有一种常用的技巧，它基于这样的事实：参数变量用同样的名字将实例域屏蔽起来。例如：如果将参数命名为level，level将引用这个参数，而不是实例域。但是，可以采用this.level的形式访问实例域。回想一下，this指示隐式参数，也就是所构造的对象。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> level, String attribute, String master)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.level = level;</span><br><span class="line">    <span class="keyword">this</span>.attribute = attribute;</span><br><span class="line">    <span class="keyword">this</span>.master = master;</span><br><span class="line">  &#125;</span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="调用另一个构造器"><a href="#调用另一个构造器" class="headerlink" title="调用另一个构造器"></a>调用另一个构造器</h3><p>关键字this引用方法的隐式参数。然而，这个关键字还有另外一个含义。如果构造器的第一个语句形如this(…),这个构造器将调用同一个类的另一个构造器。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> level, String attribute)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.level = level;</span><br><span class="line">    <span class="keyword">this</span>.attribute = attribute;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> level, String attribute, String master)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(level, attribute);          <span class="comment">//calls Pikaqiu(int, String)</span></span><br><span class="line">    <span class="keyword">this</span>.master = master;</span><br><span class="line">  &#125;</span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当调用Pikaqiu(int, String, String)构造器时，Pikaqiu(int, String, String)构造器将会调用Pikaqiu(int, String)构造器。</p>
+<p>采用这种方式使用this关键字非常有用，这样对公共的构造器代码部分只编写一次即可。</p>
+<h3 id="初始化块"><a href="#初始化块" class="headerlink" title="初始化块"></a>初始化块</h3><p>前面已经讲过两种初始化数据域的方法：</p>
+<ul>
+<li>在构造器中设置值</li>
+<li>在声明中赋值</li>
+</ul>
+<p>实际上，Java还有第三种机制，称为初始化块。在一个类的声明中，可以包含多个代码块。只要构造类的对象，这些块就会被执行。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                      <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//实例域（instance field）</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> level;                 <span class="comment">//等级</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String attribute;    <span class="comment">//属性</span></span><br><span class="line">  <span class="keyword">private</span> String master;             <span class="comment">//主人</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//初始化块</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">this</span>.level = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这个示例中，无论使用哪个构造器构造对象，level域都在对象初始化中被初始化为0。首先运行初始化块，然后才运行构造器的主体部分。</p>
+<p>这种机制不是必需的，也不常见。通常会直接将初始化代码放在构造器中。</p>
+<p>如果使用初始化块，一般建议将初始化块放在域定义之后。</p>
+<p>由于初始化数据域有多种途径，所有列出构造过程的所有路径可能相当混乱。下面是调用构造器的具体处理步骤：</p>
+<ol>
+<li>所有数据域被初始化为默认值（0、false或null）。</li>
+<li>按照在类声明中出现的次序，依次执行所有域初始化语句和初始化块。</li>
+<li>如果构造器第一行调用了第二个构造器，则执行第二个构造器主体。</li>
+<li>执行这个构造器的主体。</li>
+</ol>
+<p>当然，应该精心地组织好初始化代码，这样有利于其他程序员的理解。例如：如果让类的构造器行为依赖于数据域声明的顺序，那就会显得很奇怪并且容易引起错误。</p>
+<p>可以通过提供一个初始化值，或者使用一个静态的初始化块来对静态域进行初始化。提供一个初始化值的格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;                  <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//静态域</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> no = <span class="number">25</span>;    <span class="comment">//这里给Pikaqiu类添加一个静态域no</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//实例域</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用一个静态的初始化块来对静态域进行初始化，将代码放在一个块中，并标记关键字static。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;             <span class="comment">//定义一个皮卡丘类</span></span><br><span class="line">  <span class="comment">//静态域</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> no;    <span class="comment">//这里给Pikaqiu类添加一个静态域no</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//实例域</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//静态的初始化块</span></span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    no = <span class="number">25</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//构造器（constructor）</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="comment">//方法（method）</span></span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在类第一次加载的时候，将会进行静态域的初始化。与实例域一样，除非将它们显示地设置成其他值，否则默认的初始值是0、false或null。所有的静态初始化语句以及静态初始化块都将依照类定义的顺序执行。</p>
+<h3 id="对象析构与finalize方法"><a href="#对象析构与finalize方法" class="headerlink" title="对象析构与finalize方法"></a>对象析构与finalize方法</h3><p>有些面向对象的程序设计语言，特别是C++，有显示的析构器方法，其中放置一些当对象不再使用时需要执行的清理代码。在析构器中，最常见的操作是回收分配给对象的存储空间。由于Java有自动的垃圾回收器，不需要人工回收内存，所以Java不支持析构器。</p>
+<p>当然，某些对象使用了内存之外的其他资源，例如，文件或使用了系统资源的另一个对象的句柄。在这种情况下，当资源不再需要时，将其回收和再利用将显得十分重要。</p>
+<p>可以为任何一个类添加finalize方法。finalize方法将在垃圾回收器清除对象之前调用。在实际应用中，不要依赖于使用finalize方法回收任何短缺的资源，这是因为很难知道这个方法什么时候才能够调用。</p>
+<p>如果某个资源需要在使用完毕后立刻被关闭，那么就需要由人工来管理。对象用完时，可以应用一个close方法来完成相应的清理操作。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/12/ufotable简介/" rel="next" title="ufotable简介">
+                <i class="fa fa-chevron-left"></i> ufotable简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/16/12-面向对象三大基本特征之封装/" rel="prev" title="12-面向对象三大基本特征之封装">
+                12-面向对象三大基本特征之封装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象程序设计（OOP）概述"><span class="nav-number">1.</span> <span class="nav-text">面向对象程序设计（OOP）概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">2.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类之间的关系"><span class="nav-number">2.1.</span> <span class="nav-text">类之间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的分类"><span class="nav-number">2.2.</span> <span class="nav-text">类的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类定义形式"><span class="nav-number">2.3.</span> <span class="nav-text">类定义形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例域"><span class="nav-number">2.3.1.</span> <span class="nav-text">实例域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#private实例域"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">private实例域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final实例域"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">final实例域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态域与静态常量"><span class="nav-number">2.3.2.</span> <span class="nav-text">静态域与静态常量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态域"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">静态域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态常量"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">静态常量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造器"><span class="nav-number">2.3.3.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.3.4.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法的分类"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">方法的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#访问器方法和更改器方法"><span class="nav-number">2.3.4.1.1.</span> <span class="nav-text">访问器方法和更改器方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#公有方法和私有方法"><span class="nav-number">2.3.4.1.2.</span> <span class="nav-text">公有方法和私有方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态方法"><span class="nav-number">2.3.4.1.3.</span> <span class="nav-text">静态方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工厂方法"><span class="nav-number">2.3.4.1.4.</span> <span class="nav-text">工厂方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#main方法"><span class="nav-number">2.3.4.1.5.</span> <span class="nav-text">main方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法参数"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">方法参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#隐式参数与显式参数"><span class="nav-number">2.3.4.2.1.</span> <span class="nav-text">隐式参数与显式参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#形参与实参"><span class="nav-number">2.3.4.2.2.</span> <span class="nav-text">形参与实参</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本数据类型和对象引用"><span class="nav-number">2.3.4.2.3.</span> <span class="nav-text">基本数据类型和对象引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Java中方法参数的传递方式"><span class="nav-number">2.3.4.2.4.</span> <span class="nav-text">Java中方法参数的传递方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字小结"><span class="nav-number">2.3.5.</span> <span class="nav-text">关键字小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类设计技巧"><span class="nav-number">2.4.</span> <span class="nav-text">类设计技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象"><span class="nav-number">3.</span> <span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象与对象变量"><span class="nav-number">3.1.</span> <span class="nav-text">对象与对象变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象构造"><span class="nav-number">3.2.</span> <span class="nav-text">对象构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重载"><span class="nav-number">3.2.1.</span> <span class="nav-text">重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认域初始化"><span class="nav-number">3.2.2.</span> <span class="nav-text">默认域初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无参数的构造器"><span class="nav-number">3.2.3.</span> <span class="nav-text">无参数的构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示域初始化"><span class="nav-number">3.2.4.</span> <span class="nav-text">显示域初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数名"><span class="nav-number">3.2.5.</span> <span class="nav-text">参数名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用另一个构造器"><span class="nav-number">3.2.6.</span> <span class="nav-text">调用另一个构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化块"><span class="nav-number">3.2.7.</span> <span class="nav-text">初始化块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象析构与finalize方法"><span class="nav-number">3.2.8.</span> <span class="nav-text">对象析构与finalize方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>
