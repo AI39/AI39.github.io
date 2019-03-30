@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="新世纪Coder战士的博客">
 <meta property="og:description" content="运算符赋值运算符单等号（=），计算顺序：从右往左。    符号 说明     = 单等号    下面给出一些例子：12x = 0;        //将0赋值给xz = x + y;    //将x+y的结果赋值给z 算术运算符   符号 说明 符号 说明     ++ 自增 * 乘   – 自减 / 取整   + 加 % 取余   - 减 ? : 条件运算符    下面给出一些例子：123x++">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T14:13:51.542Z">
+<meta property="og:updated_time" content="2019-03-30T09:37:05.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7-运算符、类型转换与表达式">
 <meta name="twitter:description" content="运算符赋值运算符单等号（=），计算顺序：从右往左。    符号 说明     = 单等号    下面给出一些例子：12x = 0;        //将0赋值给xz = x + y;    //将x+y的结果赋值给z 算术运算符   符号 说明 符号 说明     ++ 自增 * 乘   – 自减 / 取整   + 加 % 取余   - 减 ? : 条件运算符    下面给出一些例子：123x++">
@@ -438,7 +438,7 @@
 </tbody>
 </table>
 <p>下面给出一些例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x++;         <span class="comment">//x自增1</span></span><br><span class="line">y--;         <span class="comment">//y自减1</span></span><br><span class="line">x? y : z;    <span class="comment">//若x为真，则执行y；若x为假，则执行z</span></span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ol>
 <li><p>++与–运算符：</p>
 <ul>
@@ -535,7 +535,7 @@
 </tr>
 </tbody>
 </table>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ul>
 <li>&amp;&amp;和||运算符是按照“短路”方式来求值的：如果第一个操作数已经能够确定表达式的值，第二个操作数就不必计算了。例如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &amp;&amp; y    <span class="comment">//若表达式x的真值为false，那么结果就不可能为true。因此表达式y就不必计算了</span></span><br><span class="line">x || y    <span class="comment">//若表达式x的真值为true，那么结果就不可能为false。因此表达式y就不必计算了</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -570,7 +570,7 @@
 </tr>
 </tbody>
 </table>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ul>
 <li>位运算符只能对整数进行操作（char类型可以看做是特殊的整型）。</li>
 <li><p>&lt;&lt;（左移）几位就相当于乘以2的几次方；&gt;&gt;（右移）几位就相当于除以2的几次方。如果移除的位数大于等于数据类型的位数，会对移除的位数进行取余操作。例如：</p>
@@ -679,7 +679,7 @@
 </tbody>
 </table>
 <p>如果不使用圆括号，就按照给出的优先级次序进行计算。同一个优先级的运算符按照从左到右的次序进行计算（除了表中给出的右结合运算符外）。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &amp;&amp; y || z    <span class="comment">//等价于(x &amp;&amp; y )|| z，同优先级的左结合运算符按照从左到右的次序进行计算</span></span><br><span class="line">x += y += z    <span class="comment">//等价于x += (y += z)，同优先级的右结合运算符按照从右到左的次序进行计算</span></span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ul>
 <li>正负号与加减号不同，按位运算符与逻辑运算符不同。</li>
 <li>当不清楚优先级时，善于利用小括号。</li>
@@ -702,7 +702,7 @@
 <li>byte, short, char参与运算的时候默认会转换成int类型，即使是同一种数据类型相加。</li>
 <li>char类型可以看做是特殊的整型。</li>
 </ol>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ul>
 <li><p>在小类型转大类型时，例如在int类型转换float，long类型转换float或long类型转换double时，可能会有精度损失：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">123456789</span>;    <span class="comment">//123456789是一个大整数，它所包含的位数比float类型所能表达的位数多。</span></span><br><span class="line"><span class="keyword">float</span> f = n;          <span class="comment">//f=1.23456792E8</span></span><br></pre></td></tr></table></figure>
@@ -712,7 +712,7 @@
 </li>
 </ul>
 <h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><p>强制类型转换的语法格式是在圆括号中给出想要转换的目标类型，后面紧跟待转换的变量名。当然，可能会丢失一些信息。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">3.1415</span>;</span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) x;    <span class="comment">//nx=3</span></span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ul>
 <li>如果试图将一个数值从一种类型强制转换成另一种类型，而又超出了目标类型的表示范围，结果就会截断成一个完全不同的值。例如：<code>(byte) 300</code>的实际值为44。</li>
 <li>不要在布尔类型与任何数值类型之间进行强制类型转换，这样可以防止发生错误。只有极少数的情况才需要将布尔类型转换为数值类型，这时可以使用条件表达式<code>b? 1:0</code>。</li>
@@ -840,7 +840,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -88,7 +88,7 @@
 <meta property="og:description" content="一般注释单行注释//是最常用的注释方式，其注释内容从//开始到本行结束。例如：1String str = &quot;helloworld&quot;;    //定义一个字符串 注意：当使用//来进行长篇注释时，需要在每行的注释前标记//。 多行注释/*…*/可以将一段比较长的注释括起来，其注释内容从/*开始到*/结束。例如：123/*定义一个  字符串*/String str = &quot;helloworld&quot;; 注意">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/16/16-注释/index_html.png">
-<meta property="og:updated_time" content="2019-03-28T07:56:09.682Z">
+<meta property="og:updated_time" content="2019-03-30T10:38:44.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16-注释">
 <meta name="twitter:description" content="一般注释单行注释//是最常用的注释方式，其注释内容从//开始到本行结束。例如：1String str = &quot;helloworld&quot;;    //定义一个字符串 注意：当使用//来进行长篇注释时，需要在每行的注释前标记//。 多行注释/*…*/可以将一段比较长的注释括起来，其注释内容从/*开始到*/结束。例如：123/*定义一个  字符串*/String str = &quot;helloworld&quot;; 注意">
@@ -406,8 +406,8 @@
 <p>自由格式文本的第一句应该是一个概要性的句子。javadoc使用程序自动地将这些句子抽取出来形成概要页。</p>
 <p>在自由格式文本中，可以使用HTML修饰符。例如：用于强调的&lt;em>…&lt;em>、用于着重强调的&lt;strong>…&lt;/strong>以及包含图像的&lt;img…>等。不过，一定不要使用&lt;hl>或&lt;hr>，因为它们会与文档的格式产生冲突。若要键入等宽代码，需使用{@code…}而不是&lt;code>…&lt;/code>——这样一来，就不用操心对代码中的&lt;字符转义了。</p>
 <hr>
-<h2 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a>类注释</h2><p>类注释必须放在import语句之后，类定义之前。下面给出一个类注释的例子。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是一个用来生成一只叫皮卡丘的精灵宝可梦的类</span></span><br><span class="line"><span class="comment"> * 一只皮卡丘有等级、属性、主人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>没有必要在每一行的开始用星号*，例如，如下注释同样是合法的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   这是一个用来生成一只叫皮卡丘的精灵宝可梦的类</span></span><br><span class="line"><span class="comment">   一只皮卡丘有等级、属性、主人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a>类注释</h2><p>类注释必须放在import语句之后，类定义之前。下面给出一个类注释的例子。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是一个用来生成一只叫皮卡丘的精灵宝可梦的类</span></span><br><span class="line"><span class="comment"> * 一只皮卡丘有等级、属性、主人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>没有必要在每一行的开始用星号*，例如，如下注释同样是合法的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   这是一个用来生成一只叫皮卡丘的精灵宝可梦的类</span></span><br><span class="line"><span class="comment">   一只皮卡丘有等级、属性、主人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pikaqiu</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然而，大部分IDE提供了自动添加星号*，并且当注释行改变时，自动重新排列这些星号的功能。</p>
 <hr>
 <h2 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h2><p>每一个方法注释必须放在所描述的方法之前。除了通用标记之外，还可以使用下面的标记：</p>
@@ -416,7 +416,7 @@
 <li>@return 返回值描述：这个标记将对当前方法添加“return”（返回）部分。这个描述可以跨越多行，并可以使用HTML标记。</li>
 <li>@throws 类描述：这个标记将添加一个注释，用于表示这个方法有可能抛出异常。</li>
 </ul>
-<p>下面给出一个方法注释的示例：<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 改变皮卡丘的主人</span></span><br><span class="line"><span class="comment">     <span class="doctag">@param</span> master 皮卡丘的新主人</span></span><br><span class="line"><span class="comment">     <span class="doctag">@return</span> 无返回值</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeMaster</span><span class="params">(String master)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.master = master;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面给出一个方法注释的示例：<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 改变皮卡丘的主人</span></span><br><span class="line"><span class="comment">     <span class="doctag">@param</span> master 皮卡丘的新主人</span></span><br><span class="line"><span class="comment">     <span class="doctag">@return</span> 无返回值</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeMaster</span><span class="params">(String master)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.master = master;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="域注释"><a href="#域注释" class="headerlink" title="域注释"></a>域注释</h2><p>只需要对公有域（通常指的是静态常量）建立文档。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 皮卡丘的全国图鉴编号为25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NO = <span class="number">25</span>;</span><br></pre></td></tr></table></figure></p>
 <h2 id="通用注释"><a href="#通用注释" class="headerlink" title="通用注释"></a>通用注释</h2><p>下面的注释可以用在类文档的注释中：</p>
 <ul>
@@ -520,6 +520,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/30/17-Java中内存空间分布/" rel="prev" title="17-Java中内存空间分布">
+                17-Java中内存空间分布 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -597,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
