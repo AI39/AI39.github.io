@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/12/11-对象与类/面向过程与面向对象.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/11-对象与类/第一种选择.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/11-对象与类/第二种选择.png">
-<meta property="og:updated_time" content="2019-04-05T01:31:33.015Z">
+<meta property="og:updated_time" content="2019-04-07T02:33:18.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="11-对象与类">
 <meta name="twitter:description" content="面向对象程序设计（OOP）概述面向对象程序设计（简称OOP）是当今主流的程序设计范型，它已经取代了20世纪70年代的“结构化”过程化程序设计开发技术。Java是完全面向对象的，必须熟悉OOP才能够编写Java程序。 面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏实现部分。程序中的很多对象来自标准库，还有一些是自定义的。究竟是自己构造对象，还是从外界购买对象完全取决开发项目">
@@ -461,7 +461,7 @@
 <li>构造器没有返回值。</li>
 <li>构造器总是伴随着new操作一起调用。</li>
 <li>Java构造器的工作方式与C++一样。但是，要记住所有的Java对象都是在堆中构造的，构造器总是伴随着new操作符一起使用。</li>
-<li>不要在构造器中定义与实例域重名的局部变量。这个变量只能在构造器内部访问，且屏蔽了同名的实例域。这种程序很难被检查出来，因此，必须注意在所有的方法中不要命名与实例域同名的变量。例如，下面的构造器将无法设置level。格式（伪代码）如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a, String m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> level = l;    <span class="comment">//ERROR，局部变量与实例域重名</span></span><br><span class="line">    ......</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<li>不要在构造器中定义与实例域重名的局部变量。这个变量只能在构造器内部访问，且屏蔽了同名的实例域。这种程序很难被检查出来，因此，必须注意在所有的方法中不要命名与实例域同名的变量。例如，下面的构造器将无法设置level。格式（伪代码）如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Pikaqiu</span><span class="params">(<span class="keyword">int</span> l, String a, String m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> level = l;    <span class="comment">//ERROR：局部变量与实例域重名</span></span><br><span class="line">    ......</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="方法（成员方法）"><a href="#方法（成员方法）" class="headerlink" title="方法（成员方法）"></a>方法（成员方法）</h3><p>方法（也叫成员方法）一般用于操作对象以及存取它们的实例域。</p>

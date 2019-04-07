@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。 标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。 使用包的主要原因是确保类名的唯一">
+<meta name="description" content="包的概述Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。 标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。 使用包的主要原因是确保类">
 <meta name="keywords" content="IT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20-包">
 <meta property="og:url" content="http://yoursite.com/2019/04/03/20-包/index.html">
 <meta property="og:site_name" content="新世纪Coder战士的博客">
-<meta property="og:description" content="Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。 标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。 使用包的主要原因是确保类名的唯一">
+<meta property="og:description" content="包的概述Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。 标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。 使用包的主要原因是确保类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-06T15:27:50.236Z">
+<meta property="og:updated_time" content="2019-04-07T08:17:20.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20-包">
-<meta name="twitter:description" content="Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。 标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。 使用包的主要原因是确保类名的唯一">
+<meta name="twitter:description" content="包的概述Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。 标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。 使用包的主要原因是确保类">
 
 
 
@@ -385,22 +385,22 @@
       
 
       
-        <p>Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。</p>
+        <h1 id="包的概述"><a href="#包的概述" class="headerlink" title="包的概述"></a>包的概述</h1><p>Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。</p>
 <p>标准的Java类库分布在多个包中，包括java.lang、java.util和java.net等。标准的Java包具有一个层次结构。如同硬盘的目录嵌套一样，也可以使用嵌套层次组织包。所有标准的Java包都处于java和javax包层次中。</p>
 <p>使用包的主要原因是确保类名的唯一性。假如两个程序员不约而同地建立了Employee类。只要将这些类放置在不同的包中，就不会产生冲突。事实上，为了保证包名的绝对唯一性，Sun公司建议将公司的因特网域名（这显然是独一无二的）以逆序的形式作为包名，并且对于不同的项目使用不同的子包。例如：horstmann.com是一个注册的域名，逆序形式为com.horstmann，这个包还可以被进一步划分成子包，如com.horstmann.corejava。</p>
 <p>从编译器的角度来看，嵌套的包之间没有任何关系。例如：java.util和java.util.jar包毫无关系。每一个都拥有独立的类集合。</p>
-<h2 id="类的导入"><a href="#类的导入" class="headerlink" title="类的导入"></a>类的导入</h2><p>一个类可以使用所属包中的所有类，以及其他包中的共有类（public class）。我们可以采用两种方式访问另一个包中的共有类。第一种方式是在每个类名之前添加完整的包名。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.time.LocalDate today = java.time.LocalDate.now();</span><br></pre></td></tr></table></figure></p>
+<h1 id="类的导入"><a href="#类的导入" class="headerlink" title="类的导入"></a>类的导入</h1><p>一个类可以使用所属包中的所有类，以及其他包中的共有类（public class）。我们可以采用两种方式访问另一个包中的共有类。第一种方式是在每个类名之前添加完整的包名。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.time.LocalDate today = java.time.LocalDate.now();</span><br></pre></td></tr></table></figure></p>
 <p>这显然很繁琐。更简洁且更常用的方式是使用import语句。import语句是一种引用包含在包中的类的简明描述。一旦使用了import语句，在使用类时，就不必写出包的全名了。</p>
 <p>可以使用import语句导入一个特定的类或者整个包。import语句应该位于源文件的顶部（但位于package语句的后面）。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import java.time.*;</span><br></pre></td></tr></table></figure></p>
 <p>然后，就可以使用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDate today = LocalDate.now();</span><br></pre></td></tr></table></figure></p>
 <p>而无需在前面加上包前缀。还可以导入一个包中的特定类。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br></pre></td></tr></table></figure></p>
 <p>在这里，java.time.*的语法比较简单，对代码的大小也没有任何负面影响。当然，如果能够明确地指出所导入地类，将会使代码的读者更加准确地知道加载了哪些类。</p>
-<p>但是，需要注意的是，只能使用星号（*）导入<strong>一</strong>个包，而不能使用<code>import.java.*</code>或<code>import.java.*.*</code>导入以java为前缀的所有包。</p>
-<p>在大多数情况下，只导入所需要的包，并不必过多的理睬它们。但在发生命名冲突的时候，就不能不注意包的名字了。例如：<code>java.util</code>和<code>java.sql</code>都有日期（Date）类，如果在程序中导入了这两个包，在程序中使用Date类时就会出现一个编译错误。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line">......</span><br><span class="line">Date today;            <span class="comment">//ERROR--java.util.Date or java.sql.Date?</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
+<p>但是，需要注意的是，只能使用星号（*）导入一个包，而不能使用<code>import java.*</code>或<code>import java.*.*</code>导入以java为前缀的所有包。</p>
+<p>在大多数情况下，只导入所需要的包，并不必过多的理睬它们。但在发生命名冲突的时候，就不能不注意包的名字了。例如：<code>java.util</code>和<code>java.sql</code>都有日期（Date）类，如果在程序中导入了这两个包，在程序中使用Date类时就会出现一个编译错误。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line">......</span><br><span class="line">Date today;            <span class="comment">//ERROR：java.util.Date or java.sql.Date?</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
 <p>此时编译器无法确定程序使用的是哪一个Date类。可以采用增加一个特定的import语句来解决这个问题。格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line">......</span><br><span class="line">Date today;               <span class="comment">//java.util.Date</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
 <p>如果这两个Date类都需要使用，又该怎么办呢？答案是，在每个类名的前面加上完整的包名：<br>格式（伪代码）如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java.util.Date deadline = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">java.sql.Date today = <span class="keyword">new</span> java.sql.Date(...);      <span class="comment">//此处省略若干参数</span></span><br></pre></td></tr></table></figure></p>
 <p>在包中定位类是编译器的工作。类文件中的字节码肯定使用完整的包名来引用其他类。</p>
-<h2 id="静态导入"><a href="#静态导入" class="headerlink" title="静态导入"></a>静态导入</h2><p>import语句不仅可以导入类，还增加了导入静态方法和静态域的功能。例如：如果在源文件的顶部，添加一条指令：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;</span><br></pre></td></tr></table></figure></p>
+<h1 id="静态导入"><a href="#静态导入" class="headerlink" title="静态导入"></a>静态导入</h1><p>import语句不仅可以导入类，还增加了导入静态方法和静态域的功能。例如：如果在源文件的顶部，添加一条指令：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;</span><br></pre></td></tr></table></figure></p>
 <p>就可以使用System类的静态方法和静态域，而不必加类名前缀：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out.println(<span class="string">"Goodbye, World!"</span>);    <span class="comment">//i.e., System.out</span></span><br><span class="line">exit(<span class="number">0</span>);                           <span class="comment">//i.e., System.exit</span></span><br></pre></td></tr></table></figure></p>
 <p>实际上，是否有更多的程序员采用System.out或System.exit的简写形式，似乎是一件值得怀疑的事。这种编写不利于代码的清晰度。不过：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqrt(pow(x, <span class="number">2</span>) + pow(y, <span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
 <p>看起来比<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.sqrt(Math.pow(x, <span class="number">2</span>) + Math.pow(y, <span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
@@ -408,7 +408,7 @@
 <h2 id="将类放入包中"><a href="#将类放入包中" class="headerlink" title="将类放入包中"></a>将类放入包中</h2><p>要想将一个类放入包中，就必需将包的名字放在源文件的开头，包中定义类的代码之前。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如果没有在源文件中放置package语句，这个源文件中的类就被放置在一个默认包中。默认包是一个没有名字的包。</p>
 <p>将包中的文件放到与完整的包名匹配的子目录中。例如：com.xxx包中的所有源文件应该被放置在子目录com/xxx（Windows中com\xxx）中。<br>编译器将类文件也放在相同的目录结构中。</p>
-<h2 id="包作用域"><a href="#包作用域" class="headerlink" title="包作用域"></a>包作用域</h2><p>对于访问标记符public和private。标记为public的部分可以被任意的类使用；标记为private的部分只能被定义它们的类使用。如果没有指定public或private，这个部分（类、方法或变量）可以被同一个包中的所有方法访问。</p>
+<h1 id="包作用域"><a href="#包作用域" class="headerlink" title="包作用域"></a>包作用域</h1><p>对于访问标记符public和private。标记为public的部分可以被任意的类使用；标记为private的部分只能被定义它们的类使用。如果没有指定public或private，这个部分（类、方法或变量）可以被同一个包中的所有方法访问。</p>
 <p>对于类来说，这种默认是合乎情理的。但是，对于变量来说就有些不适宜了，因此变量必须显式地标记为private，不然的话将默认为包可见。显然，这样做会破坏封装性。</p>
 
       
@@ -596,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的导入"><span class="nav-number">1.</span> <span class="nav-text">类的导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态导入"><span class="nav-number">2.</span> <span class="nav-text">静态导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将类放入包中"><span class="nav-number">3.</span> <span class="nav-text">将类放入包中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包作用域"><span class="nav-number">4.</span> <span class="nav-text">包作用域</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包的概述"><span class="nav-number">1.</span> <span class="nav-text">包的概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类的导入"><span class="nav-number">2.</span> <span class="nav-text">类的导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态导入"><span class="nav-number">3.</span> <span class="nav-text">静态导入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将类放入包中"><span class="nav-number">3.1.</span> <span class="nav-text">将类放入包中</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包作用域"><span class="nav-number">4.</span> <span class="nav-text">包作用域</span></a></li></ol></div>
             
 
           </div>

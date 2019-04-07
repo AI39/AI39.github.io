@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="未完待续…">
+<meta name="description" content="final关键字是最终的意思，可以修饰局部变量、类、成员变量和成员方法。 final修饰局部变量当final修饰的是一个局部变量时，又分为基本类型和引用类型两种情况。 局部变量是基本类型当final修饰的局部变量是一个基本类型时，表示这个变量是一个常量，只能被赋值一次。一旦被赋值后，就不能够再更改了。习惯上，常量名使用全大写。例如：1234567public class Constants0 &amp;#">
 <meta name="keywords" content="IT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="19-final关键字">
 <meta property="og:url" content="http://yoursite.com/2019/03/26/19-final关键字/index.html">
 <meta property="og:site_name" content="新世纪Coder战士的博客">
-<meta property="og:description" content="未完待续…">
+<meta property="og:description" content="final关键字是最终的意思，可以修饰局部变量、类、成员变量和成员方法。 final修饰局部变量当final修饰的是一个局部变量时，又分为基本类型和引用类型两种情况。 局部变量是基本类型当final修饰的局部变量是一个基本类型时，表示这个变量是一个常量，只能被赋值一次。一旦被赋值后，就不能够再更改了。习惯上，常量名使用全大写。例如：1234567public class Constants0 &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-06T15:32:21.785Z">
+<meta property="og:updated_time" content="2019-04-07T04:07:18.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="19-final关键字">
-<meta name="twitter:description" content="未完待续…">
+<meta name="twitter:description" content="final关键字是最终的意思，可以修饰局部变量、类、成员变量和成员方法。 final修饰局部变量当final修饰的是一个局部变量时，又分为基本类型和引用类型两种情况。 局部变量是基本类型当final修饰的局部变量是一个基本类型时，表示这个变量是一个常量，只能被赋值一次。一旦被赋值后，就不能够再更改了。习惯上，常量名使用全大写。例如：1234567public class Constants0 &amp;#">
 
 
 
@@ -385,7 +385,21 @@
       
 
       
-        <p>未完待续…</p>
+        <p>final关键字是最终的意思，可以修饰局部变量、类、成员变量和成员方法。</p>
+<h1 id="final修饰局部变量"><a href="#final修饰局部变量" class="headerlink" title="final修饰局部变量"></a>final修饰局部变量</h1><p>当final修饰的是一个局部变量时，又分为基本类型和引用类型两种情况。</p>
+<h2 id="局部变量是基本类型"><a href="#局部变量是基本类型" class="headerlink" title="局部变量是基本类型"></a>局部变量是基本类型</h2><p>当final修饰的局部变量是一个基本类型时，表示这个变量是一个常量，只能被赋值一次。一旦被赋值后，就不能够再更改了。习惯上，常量名使用全大写。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constants0</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> CONSTANTS = <span class="number">39</span>;         <span class="comment">//CONSTANTS是一个基本类型，且被final修饰</span></span><br><span class="line">        System.out.println(CONSTANTS);</span><br><span class="line">        CONSTANTS = <span class="number">40</span>;                   <span class="comment">//ERRROE：final修饰的局部变量被赋值后不能再更改，这里修饰的局部变量CONSTANTS是一个基本类型，基本类型的值不能再更改</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="局部变量是引用类型"><a href="#局部变量是引用类型" class="headerlink" title="局部变量是引用类型"></a>局部变量是引用类型</h2><p>当final修饰的局部变量是一个引用类型时，表示这个变量的值即地址（引用类型的值是一个地址值）值是一个常量，只能被赋值一次。一旦被赋值后，就不能够再更改了。但是，这个引用变量所指向的对象的值仍可以发生改变。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constants1</span> </span>&#123;</span><br><span class="line">    <span class="comment">//实例域（即成员变量）</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//构造器（即构造方法）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Constants1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法（即成员方法）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Constants1 CONSTANTS0 = <span class="keyword">new</span> Constants1();    <span class="comment">//CONSTANTS0是一个引用类型，且被final修饰</span></span><br><span class="line">        System.out.println(CONSTANTS0.getA());             <span class="comment">//OK：输出0</span></span><br><span class="line">        CONSTANTS0.setA(<span class="number">1</span>);                                <span class="comment">//OK：CONSTANTS0.a = 1</span></span><br><span class="line">        System.out.println(CONSTANTS0.getA());             <span class="comment">//OK：输出1</span></span><br><span class="line"></span><br><span class="line">        Constants1 CONSTANTS1 = <span class="keyword">new</span> Constants1();</span><br><span class="line">        CONSTANTS0 = CONSTANTS1;                           <span class="comment">//ERROR：final修饰的局部变量被赋值后不能再更改，这里修饰的局部变量CONSTANTS0是一个引用类型，引用类型的值是地址值，所以该地址值不能再更改</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="final修饰类"><a href="#final修饰类" class="headerlink" title="final修饰类"></a>final修饰类</h1><p>当final修饰的是一个类时，表示这个类不能被继承。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;    <span class="comment">//ERROR：final修饰的类不能被继承，所以这里被final修饰的类Father不能再被其他类继承</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="final修饰实例域（即成员变量）"><a href="#final修饰实例域（即成员变量）" class="headerlink" title="final修饰实例域（即成员变量）"></a>final修饰实例域（即成员变量）</h1><p>当final修饰的是一个实例域时，实例域就变成了常量，只能被赋值一次。被final修饰的实例域可以通过以下两种方法赋值：</p>
+<ol>
+<li><p>在显示域中赋值，且以后在构造器或其他任何地方再不能被赋值。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="comment">//实例域（即成员变量）</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> constants = <span class="number">0</span>;    <span class="comment">//constants是一个实例域（即成员变量），且被final修饰</span></span><br><span class="line">    <span class="comment">//构造器（即构造方法）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Father</span><span class="params">(<span class="keyword">int</span> constants)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.constants = constants;     <span class="comment">//ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法（即成员方法）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getConstants</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.constants;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setConstants</span><span class="params">(<span class="keyword">int</span> constants)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.constants = constants;     <span class="comment">//ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果没有在显示域中赋值，可以通过构造器赋值，且以后在其他任何地方再不能被赋值。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="comment">//实例域（即成员变量）</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> constants;        <span class="comment">//constants是一个实例域（即成员变量），且被final修饰</span></span><br><span class="line">    <span class="comment">//构造器（即构造方法）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Father</span><span class="params">(<span class="keyword">int</span> constants)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.constants = constants;     <span class="comment">//OK</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法（即成员方法）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getConstants</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.constants;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setConstants</span><span class="params">(<span class="keyword">int</span> constants)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.constants = constants;     <span class="comment">//ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="final修饰成员方法"><a href="#final修饰成员方法" class="headerlink" title="final修饰成员方法"></a>final修饰成员方法</h1><p>当final修饰的是一个方法时，方法不能被重写。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"show"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;               <span class="comment">//ERROR：final修饰的方法不能被重写，所以这里被final修饰的父类Father的方法show不能再被子类Son重写</span></span><br><span class="line">        System.out.println(<span class="string">"show"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -480,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -553,6 +576,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#final修饰局部变量"><span class="nav-number">1.</span> <span class="nav-text">final修饰局部变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#局部变量是基本类型"><span class="nav-number">1.1.</span> <span class="nav-text">局部变量是基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部变量是引用类型"><span class="nav-number">1.2.</span> <span class="nav-text">局部变量是引用类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final修饰类"><span class="nav-number">2.</span> <span class="nav-text">final修饰类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final修饰实例域（即成员变量）"><span class="nav-number">3.</span> <span class="nav-text">final修饰实例域（即成员变量）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final修饰成员方法"><span class="nav-number">4.</span> <span class="nav-text">final修饰成员方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
