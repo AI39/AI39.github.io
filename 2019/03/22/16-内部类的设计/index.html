@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="未完待续…">
+<meta name="description" content="内部类概述内部类（inner class）是定义在另一个类中的类。例如：在类A中定义了一个类B，类B就是内部类。 内部类的特点 内部类方法可以直接访问外部类（该类定义所在的作用域）中的数据，包括私有的数据。 外部类要访问内部类的成员，必须创建对象。 内部类可以对同一个包中的其他类隐藏起来。 当想要定义一个回调函数且不想编写大量代码时，使用匿名（ anonymous）内部类比较便捷。  内部类的分类">
 <meta name="keywords" content="IT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="16-内部类的设计">
 <meta property="og:url" content="http://yoursite.com/2019/03/22/16-内部类的设计/index.html">
 <meta property="og:site_name" content="新世纪Coder战士的博客">
-<meta property="og:description" content="未完待续…">
+<meta property="og:description" content="内部类概述内部类（inner class）是定义在另一个类中的类。例如：在类A中定义了一个类B，类B就是内部类。 内部类的特点 内部类方法可以直接访问外部类（该类定义所在的作用域）中的数据，包括私有的数据。 外部类要访问内部类的成员，必须创建对象。 内部类可以对同一个包中的其他类隐藏起来。 当想要定义一个回调函数且不想编写大量代码时，使用匿名（ anonymous）内部类比较便捷。  内部类的分类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-06T15:32:10.187Z">
+<meta property="og:updated_time" content="2019-04-09T13:42:02.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16-内部类的设计">
-<meta name="twitter:description" content="未完待续…">
+<meta name="twitter:description" content="内部类概述内部类（inner class）是定义在另一个类中的类。例如：在类A中定义了一个类B，类B就是内部类。 内部类的特点 内部类方法可以直接访问外部类（该类定义所在的作用域）中的数据，包括私有的数据。 外部类要访问内部类的成员，必须创建对象。 内部类可以对同一个包中的其他类隐藏起来。 当想要定义一个回调函数且不想编写大量代码时，使用匿名（ anonymous）内部类比较便捷。  内部类的分类">
 
 
 
@@ -385,7 +385,43 @@
       
 
       
-        <p>未完待续…</p>
+        <h1 id="内部类概述"><a href="#内部类概述" class="headerlink" title="内部类概述"></a>内部类概述</h1><p>内部类（inner class）是定义在另一个类中的类。例如：在类A中定义了一个类B，类B就是内部类。</p>
+<h1 id="内部类的特点"><a href="#内部类的特点" class="headerlink" title="内部类的特点"></a>内部类的特点</h1><ul>
+<li>内部类方法可以直接访问外部类（该类定义所在的作用域）中的数据，包括私有的数据。</li>
+<li>外部类要访问内部类的成员，必须创建对象。</li>
+<li>内部类可以对同一个包中的其他类隐藏起来。</li>
+<li>当想要定义一个回调函数且不想编写大量代码时，使用匿名（ anonymous）内部类比较便捷。</li>
+</ul>
+<h1 id="内部类的分类："><a href="#内部类的分类：" class="headerlink" title="内部类的分类："></a>内部类的分类：</h1><p>根据内部类定义位置的不同，可以将内部类分为以下几种情况：</p>
+<ul>
+<li>成员内部类</li>
+<li>静态内部类</li>
+<li>局部内部类</li>
+<li>匿名内部类</li>
+</ul>
+<h2 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h2><p>内部类的对象是外部类对象的一个成员。</p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>java中不允许非静态内部类定义静态变量和静态方法。</li>
+<li>java中允许非静态内部类定义静态常量。</li>
+</ul>
+<p>内部类怎么访问外部类：</p>
+<ul>
+<li>直接访问，好像定义在自己类中一样,并且可以访问外部类的私有成员。例如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;                                            <span class="comment">//定义一个外部类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> outerA = <span class="number">10</span>;                              <span class="comment">///OK：定义一个外部类成员变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> outerB = <span class="number">20</span>;                             <span class="comment">//OK：定义一个私有的外部类成员变量</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> outerC = <span class="number">30</span>;                              <span class="comment">//OK：定义一个静态的外部类成员变量</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> outerD = <span class="number">40</span>;                        <span class="comment">//OK：定义一个静态的外部类成员常量</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">outerMethod1</span><span class="params">()</span> </span>&#123;                         <span class="comment">//定义一个外部类成员方法</span></span><br><span class="line">        System.out.println(<span class="string">"Outer: public"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">outerMethod2</span><span class="params">()</span> </span>&#123;                        <span class="comment">//定义一个私有的外部类成员方法</span></span><br><span class="line">        System.out.println(<span class="string">"Outer: private"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;                                        <span class="comment">//定义一个内部类</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">innerMethod1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"outerA = "</span> + outerA);    <span class="comment">//OK：内部类可以直接访问外部类成员变量</span></span><br><span class="line">            System.out.println(<span class="string">"outerB = "</span> + outerB);    <span class="comment">//OK：内部类可以直接访问私有的外部类成员变量</span></span><br><span class="line">            System.out.println(<span class="string">"outerC = "</span> + outerC);    <span class="comment">//OK：内部类可以直接访问静态的外部类成员变量</span></span><br><span class="line">            System.out.println(<span class="string">"outerD = "</span> + outerD);    <span class="comment">//OK：内部类可以直接访问静态的外部类成员常量</span></span><br><span class="line">            outerMethod1();                              <span class="comment">//OK：内部类可以直接访问外部类成员方法</span></span><br><span class="line">            outerMethod2();                              <span class="comment">//OK：内部类可以直接访问私有的外部类成员方法</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>外部类怎么访问内部类：</p>
+<ul>
+<li>外部类可以通过创建内部类对象来访问内部类，并且可以访问内部类的私有成员。例如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">outerMethod1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Inner inner = <span class="keyword">new</span> Inner();                       <span class="comment">//创建内部类对象</span></span><br><span class="line">        System.out.println(<span class="string">"innerA = "</span> + inner.innerA);  <span class="comment">//OK：外部类可以通过创建内部类对象来访问内部类成员变量</span></span><br><span class="line">        System.out.println(<span class="string">"innerB = "</span> + inner.innerB);  <span class="comment">//OK：外部类可以通过创建内部类对象来访问私有的内部类成员变量</span></span><br><span class="line">        System.out.println(<span class="string">"innerD = "</span> + inner.innerD);  <span class="comment">//OK：外部类可以通过创建内部类对象来访问内部类静态常量</span></span><br><span class="line">        inner.innerMethod1();                            <span class="comment">//OK：外部类可以通过创建内部类对象来访问内部类成员方法</span></span><br><span class="line">        inner.innerMethod2();                            <span class="comment">//OK：外部类可以通过创建内部类对象来访问内部类私有的内部类成员方法</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;                                        <span class="comment">//定义一个内部类</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> innerA = <span class="number">10</span>;                          <span class="comment">//OK：定义一个内部类成员变量</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> innerB = <span class="number">10</span>;                         <span class="comment">//OK：定义一个私有的内部类成员变量</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> innerC = <span class="number">30</span>;                  <span class="comment">//ERROR：java中不允许非静态内部类定义静态变量</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> innerD = <span class="number">40</span>;            <span class="comment">//OK：java中允许非静态内部类定义静态常量</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">innerMethod1</span><span class="params">()</span> </span>&#123;                     <span class="comment">//OK：定义一个内部类成员方法</span></span><br><span class="line">            System.out.println(<span class="string">"Inner: public"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">innerMethod2</span><span class="params">()</span> </span>&#123;                    <span class="comment">//OK：定义一个私有的内部类成员方法</span></span><br><span class="line">            System.out.println(<span class="string">"Inner: private"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">innerMethod3</span><span class="params">()</span> </span>&#123;                     <span class="comment">//ERROR：java中不允许非静态内部类定义静态方法</span></span><br><span class="line">            System.out.println(<span class="string">"Inner: static"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其他类怎么访问内部类：</p>
+<ul>
+<li>创建内部类对象对象，并且受访问权限限制。即不能访问内部类的私有成员。</li>
+<li>格式：外部类名.内部类名 对象名 = 外部类对象.内部类对象;</li>
+<li>例如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -480,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -553,6 +598,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类概述"><span class="nav-number">1.</span> <span class="nav-text">内部类概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类的特点"><span class="nav-number">2.</span> <span class="nav-text">内部类的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类的分类："><span class="nav-number">3.</span> <span class="nav-text">内部类的分类：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类"><span class="nav-number">3.1.</span> <span class="nav-text">成员内部类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
