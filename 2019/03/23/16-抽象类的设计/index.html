@@ -82,14 +82,14 @@
 <meta name="description" content="抽象类的概述在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。 抽象类往往用来表征对问题领域进行分析、设计中得出的抽象概念，是对一系列看上去不同，但是本质上相同的具体概念的抽象。 例如：动物本身并不是一个具体的事物，而是一个抽象的事物。只有真正的猫，狗才是具体的动物（所以应该把动物">
 <meta name="keywords" content="IT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="17-抽象类的设计">
-<meta property="og:url" content="http://yoursite.com/2019/03/23/17-抽象类的设计/index.html">
+<meta property="og:title" content="16-抽象类的设计">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/16-抽象类的设计/index.html">
 <meta property="og:site_name" content="新世纪Coder战士的博客">
 <meta property="og:description" content="抽象类的概述在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。 抽象类往往用来表征对问题领域进行分析、设计中得出的抽象概念，是对一系列看上去不同，但是本质上相同的具体概念的抽象。 例如：动物本身并不是一个具体的事物，而是一个抽象的事物。只有真正的猫，狗才是具体的动物（所以应该把动物">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-09T15:43:17.971Z">
+<meta property="og:updated_time" content="2019-04-10T15:30:15.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="17-抽象类的设计">
+<meta name="twitter:title" content="16-抽象类的设计">
 <meta name="twitter:description" content="抽象类的概述在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。 抽象类往往用来表征对问题领域进行分析、设计中得出的抽象概念，是对一系列看上去不同，但是本质上相同的具体概念的抽象。 例如：动物本身并不是一个具体的事物，而是一个抽象的事物。只有真正的猫，狗才是具体的动物（所以应该把动物">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/23/17-抽象类的设计/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/16-抽象类的设计/">
 
 
 
 
 
-  <title>17-抽象类的设计 | 新世纪Coder战士的博客</title>
+  <title>16-抽象类的设计 | 新世纪Coder战士的博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/17-抽象类的设计/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/16-抽象类的设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="新世纪Coder战士">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">17-抽象类的设计</h1>
+          <h1 class="post-title" itemprop="name headline">16-抽象类的设计</h1>
         
 
         <div class="post-meta">
@@ -391,7 +391,7 @@
 <h1 id="抽象类的特点"><a href="#抽象类的特点" class="headerlink" title="抽象类的特点"></a>抽象类的特点</h1><p>抽象类和抽象方法必须用abstract关键字修饰。格式（伪代码）如下：</p>
 <ul>
 <li>抽象类：<code>abstract class ClassName {}</code></li>
-<li>抽象方法：<code>public abstract void method(...);</code>（注意：这里抽象方法的声明不需要大括号，且最后有一个分号）</li>
+<li>抽象方法：<code>public abstract 返回值类型 method(...);</code>（注意：这里抽象方法的声明不需要大括号，且最后有一个分号）</li>
 </ul>
 <p>下面给出一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;                        <span class="comment">//定义一个抽象类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span></span>;              <span class="comment">//声明一个抽象方法，限制非抽象的子类必须重写</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;                     <span class="comment">//定义一个子类继承抽象类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span> </span>&#123;                      <span class="comment">//子类重写抽象类的抽象方法</span></span><br><span class="line">        System.out.println(<span class="string">"miaow, miaow"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong>：</p>
@@ -460,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/22/16-内部类的设计/" rel="next" title="16-内部类的设计">
-                <i class="fa fa-chevron-left"></i> 16-内部类的设计
+              <a href="/2019/03/21/15-工具类的设计/" rel="next" title="15-工具类的设计">
+                <i class="fa fa-chevron-left"></i> 15-工具类的设计
               </a>
             
           </div>
@@ -470,8 +470,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/18-接口/" rel="prev" title="18-接口">
-                18-接口 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/24/17-接口/" rel="prev" title="17-接口">
+                17-接口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
