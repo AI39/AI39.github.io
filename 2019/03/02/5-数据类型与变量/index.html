@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="新世纪Coder战士的博客">
 <meta property="og:description" content="数据类型基本类型 — 用于保存简单的单个数据整型整型用于表示没有小数部分的数值，它允许是负数。    类型 存储需求 取值范围     int 4字节 -2 147 483 648 ~ 2 147 483 647（正好超过20亿）   short 2字节 -32 768 ~ 32 767   long 8字节 -9 223 372 036 854 775 808 ~ 9 223 372 036 8">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T02:29:10.545Z">
+<meta property="og:updated_time" content="2019-04-14T13:02:39.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5-数据类型与变量">
 <meta name="twitter:description" content="数据类型基本类型 — 用于保存简单的单个数据整型整型用于表示没有小数部分的数值，它允许是负数。    类型 存储需求 取值范围     int 4字节 -2 147 483 648 ~ 2 147 483 647（正好超过20亿）   short 2字节 -32 768 ~ 32 767   long 8字节 -9 223 372 036 854 775 808 ~ 9 223 372 036 8">
@@ -418,10 +418,10 @@
 </tbody>
 </table>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>Java中所有的数值类型所占据的字节数量与平台无关。</li>
 <li>Java中没有任何无符号（unsigned）形式的int、long、short或byte类型。</li>
-</ul>
+</ol>
 <h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>浮点型用于表示有小数部分的数值。</p>
 <table>
 <thead>
@@ -445,13 +445,13 @@
 </tbody>
 </table>
 <p>下面是用于表示溢出和出错情况的三个特殊的浮点数值：</p>
-<ul>
+<ol>
 <li>Double.POSITIVE_INFINITY：正无穷大。</li>
 <li>Double.NEGATIVE_INFINITY：负无穷大。</li>
 <li>Double.NaN：不是一个数，如计算0/0或负数的平方根。</li>
-</ul>
+</ol>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>double表示这种类型的数值精度是float类型的两倍，绝大部分应用程序都采用double类型。在很多情况下，float类型的精度很难满足需求。且float类型的数值有一个后缀F或f，没有后缀的浮点数值默认为double类型。</li>
 <li><p>所有“非数值”的值都认为是不相同的。不能这样检测一个特定值是否等于Double.NaN：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x == Double.NaN)    <span class="comment">//语法正确，但逻辑出错</span></span><br></pre></td></tr></table></figure>
@@ -459,7 +459,7 @@
 <li><p>可以使用Double.NaN方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Double.isNaN(x))    <span class="comment">//逻辑正确</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+</ol>
 <h3 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h3><p>char类型原本用于表示单个字符。现在，有些Unicode字符可以用一个char值描述，另外一些Unicode字符则需要用两个char值描述。</p>
 <table>
 <thead>
@@ -476,10 +476,10 @@
 </tbody>
 </table>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>char类型的字面量值要用单引号括起来。例如：’A’的编码值为65所对应的字符常量。它与”A”不同，”A”是包含一个字符A的字符串。char类型的值可以表示为十六进制值，其范围从\u0000到\Uffff。</li>
 <li>在Java中，char类型描述了UTF-16编码中的一个代码单元。我们强烈建议不要在程序中使用char类型，除非确实需要处理UTF-16代码单元，最好将字符串作为抽象数据类型处理（有关内容见下面的String部分）。</li>
-</ul>
+</ol>
 <h3 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h3><p>布尔型有两个值：false和true，用来判定逻辑条件。</p>
 <table>
 <thead>
@@ -496,20 +496,20 @@
 </tbody>
 </table>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li><p>在C++中，数值甚至指针可以代替boolean值。值0相当于布尔值false，非0值相当于布尔值true，在Java中则不是这样，整型值和布尔值之间不能进行相互转换。例如，在Java中类似<code>0 == false</code>的语句不能通过编译。又例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x = <span class="number">0</span>)    <span class="comment">//不小心将“x==0”误写成“x=0”</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在C++中这个测试可以编译运行，其结果总是false。而在Java中，这个测试将不能通过编译，其原因是整数表达式<code>x=0</code>不能转换成布尔值。</p>
 </li>
-</ul>
+</ol>
 <h2 id="引用类型-—-用于保存复杂的组合数据（包括类class、接口interface、数组-）"><a href="#引用类型-—-用于保存复杂的组合数据（包括类class、接口interface、数组-）" class="headerlink" title="引用类型 — 用于保存复杂的组合数据（包括类class、接口interface、数组[]）"></a>引用类型 — 用于保存复杂的组合数据（包括类class、接口interface、数组[]）</h2><h3 id="字符串类"><a href="#字符串类" class="headerlink" title="字符串类"></a>字符串类</h3><p>从概念上讲，Java字符串就是Unicode字符序列。Java没有内置的字符串类型，而是在标准Java类库中提供了一个预定义类，很自然叫做String。每个用双引号括起来的字符串都是String类的一个实例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String e = <span class="string">""</span>;              <span class="comment">//一个空的字符串</span></span><br><span class="line">String name = <span class="string">"Maxwell"</span>;</span><br></pre></td></tr></table></figure></p>
 <h4 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h4><p>String类的substring方法可以从一个较大的字符串提取出一个字串。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = <span class="string">"Maxwell"</span>;</span><br><span class="line">String s = name.substring(<span class="number">0</span>, <span class="number">3</span>);    <span class="comment">//s = "Max"</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>substring方法的第二个参数是不想复制的第一个位置。</li>
 <li>substring方法的工作方式有一个优点，容易计算子串的长度。字符串s.substring(a, b)的长度为b-a。</li>
-</ul>
+</ol>
 <h4 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h4><p>Java允许使用+号连接（拼接）两个字符串。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String name1 = <span class="string">"Max"</span>;</span><br><span class="line">String name2 = <span class="string">"well"</span>;</span><br><span class="line">String name  = name1 + name2;    <span class="comment">//name = "Maxwell";</span></span><br></pre></td></tr></table></figure></p>
 <p>当一个字符串与一个非字符串的值进行拼接时，后者被转换成字符串。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">39</span>;</span><br><span class="line">String name = <span class="string">"miku"</span> + num;    <span class="comment">//name = "miku39";</span></span><br></pre></td></tr></table></figure></p>
 <p>如果需要把多个字符串放在一起，用一个界定符分隔，可以使用静态join方法。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String path = String.join(<span class="string">"\\"</span>, <span class="string">"C:"</span>, <span class="string">"Users"</span>);    <span class="comment">//path = "C:\Users";</span></span><br></pre></td></tr></table></figure></p>
@@ -534,29 +534,29 @@
 <h2 id="变量的声明和初始化："><a href="#变量的声明和初始化：" class="headerlink" title="变量的声明和初始化："></a>变量的声明和初始化：</h2><p>变量的声明：数据类型 变量名; 例如：<code>int value;</code></p>
 <p>变量的初始化：变量名 = 值; 例如：<code>value = 0;</code></p>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li><p>声明一个变量以后，必须用赋值语句对变量进行显示初始化，使用未初始化的变量Java编译器会报错。例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value;</span><br><span class="line">System.out.println(value);    <span class="comment">//ERROR：variable not initialized</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>因此，常用如下两种方法声明和初始化变量：</p>
-<ol>
+<ul>
 <li><p>定义时初始化变量：数据类型 变量名 = 值; 例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>定义后初始化变量：数据类型 变量名; 变量名 = 值; 例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value;</span><br><span class="line">value = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-</li>
 </ul>
-<h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><ul>
+</li>
+</ol>
+<h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><ol>
 <li>变量名只能以字母、数字、_符号和$符号组成。</li>
 <li>第一个字符只能是字母_符号和$符号，不能是数字。</li>
 <li>变量名不能包含除_符号和$符号以外的任何特殊字符，如%、#等。</li>
 <li>不可以使用关键字作为变量名，如不能把变量名取作int。</li>
-</ul>
+</ol>
 <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="字面值常量"><a href="#字面值常量" class="headerlink" title="字面值常量"></a>字面值常量</h3><p>下面给出一些例子：</p>
-<ul>
+<ol>
 <li>字符串常量：”Hello world!”</li>
 <li>整型常量：<ul>
 <li>二进制（0b开头）：0b100</li>
@@ -569,7 +569,7 @@
 <li>字符型常量：’a’，’中’，’0’</li>
 <li>布尔型常量：true，false</li>
 <li>空常量：null</li>
-</ul>
+</ol>
 <h3 id="自定义常量"><a href="#自定义常量" class="headerlink" title="自定义常量"></a>自定义常量</h3><p>在Java中，利用关键字final指示常量。关键字final表示这个变量只能被赋值一次。一旦被赋值后，就不能够再更改了。习惯上，常量名使用全大写。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constants</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> CONSTANT = <span class="number">39</span>;</span><br><span class="line">        System.out.println(CONSTANT);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>可以利用关键字static final设置一个类常量。需要注意的是，类常量的定义位于main方法的外部。因此，在同一个类的其他方法中也可以使用这个常量。例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constants</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CONSTANT = <span class="number">39</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(CONSTANT);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

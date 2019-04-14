@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/06/10-数组/数组拷贝_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/06/10-数组/数组拷贝_2.png">
-<meta property="og:updated_time" content="2019-04-07T02:30:58.508Z">
+<meta property="og:updated_time" content="2019-04-14T13:08:27.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10-数组">
 <meta name="twitter:description" content="一维数组数组的声明与初始化数组是一种可以在内存中连续存储多个元素的结构，数组中的所有元素必须属于相同的数据类型。通过一个整型下标可以访问数组中的每一个值。例如nums是一个整型数组，那么nums[i]就是数组中下标为i的整数。 在声明数组变量时，需要指出数组类型（数据元素类型紧跟[]）和数组变量的名字。下面声明了整型数组nums：1int[] nums; 不过，这条语句只声明了变量nums，并没有">
@@ -393,11 +393,11 @@
 <p>不过，这条语句只声明了变量nums，并没有将nums初始化为一个真正的数组。应该使用new运算符创建数组。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];    <span class="comment">//在堆内存中分配了100个int类型大小的空间</span></span><br></pre></td></tr></table></figure></p>
 <p>这条语句创建了一个可以存储100个整数的数组（这个数组的下标从0~99，不是1~100，若试图访问nums[100]，程序会引发异常）。数组长度不要求是常量：<code>new int[n]</code>会创建一个长度为n的数组。</p>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>数组名就是新分配内存空间的首地址。</li>
 <li>处理基本数据类型与数组的区别如下：处理基本类型时，在栈内存直接分配了空间（不需要手动分配内存），处理数组时，需要借助new运算符在堆内存中分配空间。</li>
 <li>可以使用下面两种形式声明数组<code>int[] nums;</code>或<code>int nums[];</code>。大多数Java应用程序员更喜欢使用第一种风格，因为它将类型int[]（整形数组）与变量名分开了。</li>
-</ul>
+</ol>
 <p>一旦创建了数组，就可以给数组元素赋值。例如，可以使用一个循环：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    nums[i] = i;    <span class="comment">//将数组的第i个元素赋值为i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>创建一个数字数组时，所有元素都初始化为0。布尔数组的元素会初始化为false。对象数组的元素则初始化为一个特殊值null，这表示这些元素（还）未存放任何对象。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] names = <span class="keyword">new</span> String[<span class="number">10</span>];</span><br></pre></td></tr></table></figure></p>
 <p>这条语句会创建一个包含10个字符串的数组，所有字符串都为null。如果希望这个数组包含空串，可以为元素指定空串：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String[] names = <span class="keyword">new</span> String[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    names[i] = <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>

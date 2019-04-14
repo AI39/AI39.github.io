@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="新世纪Coder战士的博客">
 <meta property="og:description" content="运算符赋值运算符单等号（=），计算顺序：从右往左。    符号 说明     = 单等号    下面给出一些例子：12x = 0;        //将0赋值给xz = x + y;    //将x+y的结果赋值给z 算术运算符   符号 说明 符号 说明     ++ 自增 * 乘   – 自减 / 取整   + 加 % 取余   - 减 ? : 条件运算符    下面给出一些例子：123x++">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-13T10:05:45.589Z">
+<meta property="og:updated_time" content="2019-04-14T13:04:10.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7-运算符、类型转换与表达式">
 <meta name="twitter:description" content="运算符赋值运算符单等号（=），计算顺序：从右往左。    符号 说明     = 单等号    下面给出一些例子：12x = 0;        //将0赋值给xz = x + y;    //将x+y的结果赋值给z 算术运算符   符号 说明 符号 说明     ++ 自增 * 乘   – 自减 / 取整   + 加 % 取余   - 减 ? : 条件运算符    下面给出一些例子：123x++">
@@ -571,7 +571,7 @@
 </tbody>
 </table>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>位运算符只能对整数进行操作（char类型可以看做是特殊的整型）。</li>
 <li><p>&lt;&lt;（左移）几位就相当于乘以2的几次方；&gt;&gt;（右移）几位就相当于除以2的几次方。如果移除的位数大于等于数据类型的位数，会对移除的位数进行取余操作。例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">300</span>;     <span class="comment">//int型的位数是32，所以移除的位数大于等于32时，会对移除的位数进行%32操作</span></span><br><span class="line">x = x &lt;&lt; <span class="number">33</span>;     <span class="comment">//等价于x = x &lt;&lt; (33%32) = x &lt;&lt; 1</span></span><br></pre></td></tr></table></figure>
@@ -580,7 +580,7 @@
 </li>
 <li>异或运算符（^）是它自身的逆运算，即a^a=0，a^a^a=a^0=0^a=a。借助这种规律，可以得到一个交换两个数的高效算法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">3</span>;</span><br><span class="line">a = a ^ b;    <span class="comment">//a = 4 ^ 3</span></span><br><span class="line">b = a ^ b;    <span class="comment">//b = 4 ^ 3 ^ 3 = 4 ^ 0 = 4</span></span><br><span class="line">a = a ^ b;    <span class="comment">//a = 4 ^ 3 ^ 4 = 3 ^ 0 = 3</span></span><br><span class="line">              <span class="comment">//这里的原理等价于加法是减法的逆运算，但是位运算的效率更高</span></span><br><span class="line">              <span class="comment">//a = a + b;    //a = 4 + 3 = 7</span></span><br><span class="line">              <span class="comment">//b = a - b;    //b = 7 - 3 = 4</span></span><br><span class="line">              <span class="comment">//a = a - b;    //a = 7 - 4 = 3</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+</ol>
 <p>下面给出一些例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  0101      0101      0101      0101      0101      0101</span><br><span class="line">&amp; 0101    &amp; 1010    | 0101    | 1010    ^ 0101    ^ 1010    ~ 0101</span><br><span class="line">-------   -------   -------   -------   -------   -------   -------</span><br><span class="line">  0101      0000      0101      1111      0000      1111      1010</span><br></pre></td></tr></table></figure></p>
 <h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><table>
 <thead>
@@ -680,16 +680,16 @@
 </table>
 <p>如果不使用圆括号，就按照给出的优先级次序进行计算。同一个优先级的运算符按照从左到右的次序进行计算（除了表中给出的右结合运算符外）。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &amp;&amp; y || z    <span class="comment">//等价于(x &amp;&amp; y )|| z，同优先级的左结合运算符按照从左到右的次序进行计算</span></span><br><span class="line">x += y += z    <span class="comment">//等价于x += (y += z)，同优先级的右结合运算符按照从右到左的次序进行计算</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>正负号与加减号不同，按位运算符与逻辑运算符不同。</li>
 <li>当不清楚优先级时，善于利用小括号。</li>
-</ul>
+</ol>
 <hr>
 <h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2><p>经常需要将一种数值类型转换成另一种数值类型。当使用两个数值进行二元操作时，若满足如下条件：</p>
-<ul>
+<ol>
 <li>两种类型要兼容（数值类型）。</li>
 <li>目标类型大于源类型（大类型转小类型需要强制类型转换）。</li>
-</ul>
+</ol>
 <p>则会将两个操作数转换成同一种类型，然后在进行计算。自动转换规则如下：</p>
 <ol>
 <li>byte,short,char—&gt;int—&gt;long—&gt;float—&gt;double：<ul>
@@ -703,20 +703,20 @@
 <li>char类型可以看做是特殊的整型。</li>
 </ol>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li><p>在小类型转大类型时，例如在int类型转换float，long类型转换float或long类型转换double时，可能会有精度损失：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">123456789</span>;    <span class="comment">//123456789是一个大整数，它所包含的位数比float类型所能表达的位数多。</span></span><br><span class="line"><span class="keyword">float</span> f = n;          <span class="comment">//f=1.23456792E8</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>而在大类型转小类型时，例如在int类型转换byte类型时，可能会有编译报错</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//情况1：=右边是字面型常量</span></span><br><span class="line"><span class="keyword">byte</span> b1 = <span class="number">100</span> + <span class="number">200</span>;    <span class="comment">//ERROR：=右边是字面型常量（这里是int型的字面型常量300）时，在编译的时候就能判断这个值是否超过变量数据类型（这里byte型的变量b2的表示范围为-128~127）的表示范围，超过时编译会报错</span></span><br><span class="line"><span class="keyword">byte</span> b2 = <span class="number">100</span>;          <span class="comment">//OK：这里100没有超过b2可以表示的范围</span></span><br><span class="line"><span class="comment">//情况2：=右边是变量</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">byte</span> b3 = a;            <span class="comment">//ERROR：=右边是变量（这里是int型的变量a）时，因为变量的值在程序运行过程中可能发生改变，改变后可能会超过变量数据类型的表示范围，因此在编译期不能确定它们的值，所以编译器会报错</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+</ol>
 <h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><p>强制类型转换的语法格式是在圆括号中给出想要转换的目标类型，后面紧跟待转换的变量名。当然，可能会丢失一些信息。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">3.1415</span>;</span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) x;    <span class="comment">//nx=3</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>如果试图将一个数值从一种类型强制转换成另一种类型，而又超出了目标类型的表示范围，结果就会截断成一个完全不同的值。例如：<code>(byte) 300</code>的实际值为44。</li>
 <li>不要在布尔类型与任何数值类型之间进行强制类型转换，这样可以防止发生错误。只有极少数的情况才需要将布尔类型转换为数值类型，这时可以使用条件表达式<code>b? 1:0</code>。</li>
-</ul>
+</ol>
 <hr>
 <h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>表达式就是运算符与操作数的组合，例如：<code>a + 2</code>等。</p>
 

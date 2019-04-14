@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="新世纪Coder战士的博客">
 <meta property="og:description" content="接口概述在Java程序设计语言中，接口不是类，而是对类的一组需求描述，这些类要遵从接口描述的统一格式进行定义。 这种技术主要用来描述类具有什么功能，而并不给出每个功能的具体实现。一个类可以实现（implement）一个或多个接口，并在需要接口的地方，随时使用实现了相应接口的对象。 例如：对于普通的动物，如：猫，只有觅食，睡觉等普通的动作。但是，对于那些在马戏团的猫，可能除了普通的动作之外，还会钻火">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-13T10:29:38.272Z">
+<meta property="og:updated_time" content="2019-04-14T13:23:03.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="17-接口">
 <meta name="twitter:description" content="接口概述在Java程序设计语言中，接口不是类，而是对类的一组需求描述，这些类要遵从接口描述的统一格式进行定义。 这种技术主要用来描述类具有什么功能，而并不给出每个功能的具体实现。一个类可以实现（implement）一个或多个接口，并在需要接口的地方，随时使用实现了相应接口的对象。 例如：对于普通的动物，如：猫，只有觅食，睡觉等普通的动作。但是，对于那些在马戏团的猫，可能除了普通的动作之外，还会钻火">
@@ -389,13 +389,13 @@
 <p>这种技术主要用来描述类具有什么功能，而并不给出每个功能的具体实现。一个类可以实现（implement）一个或多个接口，并在需要接口的地方，随时使用实现了相应接口的对象。</p>
 <p>例如：对于普通的动物，如：猫，只有觅食，睡觉等普通的动作。但是，对于那些在马戏团的猫，可能除了普通的动作之外，还会钻火圈、做算术等额外的动作。而这些额外的动作，并不是所有猫一开始就具备的，这应该属于经过特殊的培训训练出来的。所以，这些额外的动作定义到动物类中就不合适，也不适合直接定义到猫类中，因为只有部分猫具备这些功能。所以，为了体现事物功能的扩展性，Java中就提供了接口来定义这些额外功能，并不给出具体实现，将来哪些猫需要被培训，只需要这部分猫把这些额外功能实现即可。</p>
 <h1 id="接口的特点"><a href="#接口的特点" class="headerlink" title="接口的特点"></a>接口的特点</h1><p>接口定义用关键字interface表示，类实现接口用implements表示。格式（伪代码）如下：</p>
-<ul>
+<ol>
 <li>接口定义：<code>interface InterfaceName {}</code></li>
 <li>类实现接口：<code>class ClassName implements InterfaceName {}</code></li>
-</ul>
+</ol>
 <p>下面给出一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Inter</span> </span>&#123;                     <span class="comment">//定义一个接口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InterDemo</span> <span class="keyword">implements</span> <span class="title">Inter</span> </span>&#123;    <span class="comment">//定义一个子类实现接口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong>：</p>
-<ul>
+<ol>
 <li>接口不能实例化。<ul>
 <li>那么，接口如何实例化呢?</li>
 <li>按照多态的方式，由具体的子类实例化。其实这也是多态的一种，接口多态。</li>
@@ -410,52 +410,57 @@
 <li>往往以后定义标准会用接口，而不用抽象类。</li>
 </ul>
 </li>
-</ul>
+</ol>
 <h1 id="接口的子类"><a href="#接口的子类" class="headerlink" title="接口的子类"></a>接口的子类</h1><p>哪个类实现了该接口，该类就是它的子类。接口的子类可以是一个抽象类，也可以是一个具体类：</p>
-<ul>
+<ol>
 <li>抽象类：抽象的子类不必重写接口中所有抽象方法。</li>
 <li>具体类：必须重写接口所有的抽象方法。</li>
-</ul>
+</ol>
 <h1 id="接口的成员特点"><a href="#接口的成员特点" class="headerlink" title="接口的成员特点"></a>接口的成员特点</h1><h2 id="接口的成员变量"><a href="#接口的成员变量" class="headerlink" title="接口的成员变量"></a>接口的成员变量</h2><p>接口的成员变量只能是常量，默认修饰符public static final。</p>
 <p>下面给出一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Inter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num1 = <span class="number">0</span>;                               <span class="comment">//接口的成员变量只能是常量，默认修饰符public static final，等价于public static int fianl int num1 = 0;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InterDemo</span> <span class="keyword">implements</span> <span class="title">Inter</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Inter interDemo = <span class="keyword">new</span> InterDemo();      <span class="comment">//接口多态</span></span><br><span class="line">        System.out.println(interDemo.num1);     <span class="comment">//OK：输出0</span></span><br><span class="line">        interDemo.num1 = <span class="number">1</span>;                     <span class="comment">//ERROR：接口的成员变量num1是常量，被赋值后不能再更改</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="接口的构造方法"><a href="#接口的构造方法" class="headerlink" title="接口的构造方法"></a>接口的构造方法</h2><p>接口没有构造方法。</p>
 <h2 id="接口的成员方法"><a href="#接口的成员方法" class="headerlink" title="接口的成员方法"></a>接口的成员方法</h2><p>JDK1.8之前， 接口的成员方法只能是抽象方法。JDK1.8之后，接口的成员方法除了抽象方法，还可以是默认方法或静态方法：</p>
-<ul>
+<ol>
 <li><p>抽象方法：限制非抽象的子类必须重写这些抽象方法，默认用public abstract修饰(标准)。格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 method();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>默认方法：必修用default关键字修饰，默认用public修饰。</p>
 </li>
 <li>静态方法：必修用static修饰，默认用public修饰。</li>
-</ul>
+</ol>
 <p>下面给出一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Inter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;                               <span class="comment">//抽象方法，等价于public abstract void show();</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">showDefault</span><span class="params">()</span> </span>&#123;               <span class="comment">//默认方法，等价于public default void showDefault()...</span></span><br><span class="line">        System.out.println(<span class="string">"show default"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showStatic</span><span class="params">()</span> </span>&#123;                 <span class="comment">//静态方法，等价于public static void showStatic()...</span></span><br><span class="line">        System.out.println(<span class="string">"show static"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InterDemo</span> <span class="keyword">implements</span> <span class="title">Inter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;                       <span class="comment">//子类重写接口的抽象方法</span></span><br><span class="line">        System.out.println(<span class="string">"show abstract"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Inter interDemo = <span class="keyword">new</span> InterDemo();     <span class="comment">//接口多态</span></span><br><span class="line">        interDemo.show();                      <span class="comment">//输出show abstract</span></span><br><span class="line">        interDemo.showDefault();               <span class="comment">//输出show default</span></span><br><span class="line">        Inter.showStatic();                    <span class="comment">//输出show static，注意：接口的静态方法只能通过接口去调用，不能通过接口的子类去调用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="类与类、类与接口、接口与接口的关系"><a href="#类与类、类与接口、接口与接口的关系" class="headerlink" title="类与类、类与接口、接口与接口的关系"></a>类与类、类与接口、接口与接口的关系</h1><ul>
+<h1 id="类与类、类与接口、接口与接口的关系"><a href="#类与类、类与接口、接口与接口的关系" class="headerlink" title="类与类、类与接口、接口与接口的关系"></a>类与类、类与接口、接口与接口的关系</h1><ol>
 <li><p>类与类：类与类可以是继承关系，只能单继承，但是可以多层继承。</p>
 </li>
 <li><p>类与接口：类与接口可以是实现关系，可以单实现，也可以多实现。还可以在继承一个类的同时实现多个接口。</p>
 </li>
 <li><p>接口与接口：接口与接口可以是继承关系, 可以单继承，也可以多继承。</p>
 </li>
-</ul>
-<h1 id="抽象类与接口的区别"><a href="#抽象类与接口的区别" class="headerlink" title="抽象类与接口的区别"></a>抽象类与接口的区别</h1><h2 id="成员的区别"><a href="#成员的区别" class="headerlink" title="成员的区别"></a>成员的区别</h2><p>成员变量的区别：</p>
+</ol>
+<h1 id="抽象类与接口的区别"><a href="#抽象类与接口的区别" class="headerlink" title="抽象类与接口的区别"></a>抽象类与接口的区别</h1><h2 id="成员的区别"><a href="#成员的区别" class="headerlink" title="成员的区别"></a>成员的区别</h2><ol>
+<li><p>成员变量的区别：</p>
 <ul>
 <li>抽象类：抽象类的成员变量可以是变量，可以是常量，也可以是静态变量。</li>
 <li>接口：接口的成员变量只能是常量，默认修饰符public static final。</li>
 </ul>
-<p>构造方法的区别：</p>
+</li>
+<li><p>构造方法的区别：</p>
 <ul>
 <li>抽象类：抽象类有构造方法。</li>
 <li>接口：接口没有构造方法。</li>
 </ul>
-<p>成员方法的区别：</p>
+</li>
+<li><p>成员方法的区别：</p>
 <ul>
 <li>抽象类：抽象类的成员方法可以是抽象方法和非抽象方法，非抽象方法也可以是静态的。</li>
 <li>接口：JDK1.8之前， 接口的成员方法只能是抽象方法。JDK1.8之后，接口的成员方法除了抽象方法，还可以是默认方法或静态方法。</li>
 </ul>
-<h2 id="设计理念的区别"><a href="#设计理念的区别" class="headerlink" title="设计理念的区别"></a>设计理念的区别</h2><ul>
+</li>
+</ol>
+<h2 id="设计理念的区别"><a href="#设计理念的区别" class="headerlink" title="设计理念的区别"></a>设计理念的区别</h2><ol>
 <li>抽象类：是一种继承，体现的是“is a”的关系。（共性功能）</li>
 <li>接口：是一种扩展，体现的是“like a”的关系。（扩展功能）</li>
-</ul>
+</ol>
 
       
     </div>
