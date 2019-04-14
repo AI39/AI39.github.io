@@ -87,12 +87,10 @@
 <meta property="og:site_name" content="新世纪Coder战士的博客">
 <meta property="og:description" content="输入要想通过控制台进行输入，首先需要构造一个Scanner对象，并与“标准输入流”System.in关联（注意：构造函数和new操作符请参考“对象与类”的相关知识）：1Scanner input = new Scanner(System.in); 现在，就可以使用Scanner类的各种方法实现输入操作了。例如，nextInt方法将获得从控制台输入的一个int型数据：1int value = inp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/8-输入输出/输入输出.png">
-<meta property="og:updated_time" content="2019-03-30T10:35:02.781Z">
+<meta property="og:updated_time" content="2019-04-13T10:12:31.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="8-输入输出">
 <meta name="twitter:description" content="输入要想通过控制台进行输入，首先需要构造一个Scanner对象，并与“标准输入流”System.in关联（注意：构造函数和new操作符请参考“对象与类”的相关知识）：1Scanner input = new Scanner(System.in); 现在，就可以使用Scanner类的各种方法实现输入操作了。例如，nextInt方法将获得从控制台输入的一个int型数据：1int value = inp">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/03/8-输入输出/输入输出.png">
 
 
 
@@ -489,8 +487,8 @@
 </tbody>
 </table>
 <hr>
-<h1 id="一个实例"><a href="#一个实例" class="headerlink" title="一个实例"></a>一个实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.test.javase;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.print(<span class="string">"你选择的宝可梦是："</span>);                <span class="comment">//System.out.print()输出后不会自动换行，若想换行，要在输出结尾加上'\n'</span></span><br><span class="line">        String name = input.nextLine();</span><br><span class="line">        System.out.println(<span class="string">"就决定是你了，"</span> + name + <span class="string">"！"</span>);    <span class="comment">//System.out.println()输出后会自动换行，不用在输出结尾加上'\n'</span></span><br><span class="line">        System.out.printf(<span class="string">"%s的属性是："</span>, name);               <span class="comment">//System.out.printf()的用法类似于C语言的printf函数</span></span><br><span class="line">        <span class="keyword">char</span> attribute = input.nextLine().charAt(<span class="number">0</span>);          <span class="comment">//charAt(0)可以只获取输入字符串的第一个字符</span></span><br><span class="line">        System.out.printf(<span class="string">"%s是%c系的精灵宝可梦！"</span>, name, attribute);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：<br><img src="/2019/03/03/8-输入输出/输入输出.png" title="输入输出"></p>
+<h1 id="一个实例"><a href="#一个实例" class="headerlink" title="一个实例"></a>一个实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.print(<span class="string">"你选择的宝可梦是："</span>);                 <span class="comment">//System.out.print()输出后不会自动换行，若想换行，要在输出结尾加上'\n'</span></span><br><span class="line">        String name = input.nextLine();</span><br><span class="line">        System.out.println(<span class="string">"就决定是你了，"</span> + name + <span class="string">"！"</span>);     <span class="comment">//System.out.println()输出后会自动换行，不用在输出结尾加上'\n'</span></span><br><span class="line">        System.out.printf(<span class="string">"%s的属性是："</span>, name);               <span class="comment">//System.out.printf()的用法类似于C语言的printf函数</span></span><br><span class="line">        <span class="keyword">char</span> attribute = input.nextLine().charAt(<span class="number">0</span>);          <span class="comment">//charAt(0)可以只获取输入字符串的第一个字符</span></span><br><span class="line">        System.out.printf(<span class="string">"%s是%c系的精灵宝可梦！"</span>, name, attribute);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">你选择的宝可梦是：皮卡丘</span><br><span class="line">就决定是你了，皮卡丘！</span><br><span class="line">皮卡丘的属性是：电属性</span><br><span class="line">皮卡丘是电系的精灵宝可梦！</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -612,7 +610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
