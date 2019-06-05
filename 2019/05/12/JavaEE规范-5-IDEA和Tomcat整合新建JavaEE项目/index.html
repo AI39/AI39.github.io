@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JavaEE工程的创建 打开软件，点击“Create New Project”。 依次选择相应的“Project SDK”、“Java EE version”和“Application Server”（例如：在下图中“Project SDK”选择的是“JDK1.8”、“Java EE version”选择的是“Java EE 8”，“Application Server”选择的是“Tomcat 8">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5-IDEA和Tomcat整合新建JavaEE项目">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="JavaEE工程的创建 打开软件，点击“Create New Project”。 依次选择相应的“Project SDK”、“Java EE version”和“Application Server”（例如：在下图中“Project SDK”选择的是“JDK1.8”、“Java EE version”选择的是“Java EE 8”，“Application Server”选择的是“Tomcat 8">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_3.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_4.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置JavaEE工程_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置JavaEE工程_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Project配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Modules配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/模块配置的Sources配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/模块配置的Path配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Libraries配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Facets配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Artifacts配置项.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/web应用的组成结构.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/IDEA新创建项目时默认的文件结构及配置.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_4.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_5.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/更改指定模块的编译输出目录.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/导包_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/导包_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/导包_3.png">
+<meta property="og:updated_time" content="2019-05-19T13:08:19.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5-IDEA和Tomcat整合新建JavaEE项目">
+<meta name="twitter:description" content="JavaEE工程的创建 打开软件，点击“Create New Project”。 依次选择相应的“Project SDK”、“Java EE version”和“Application Server”（例如：在下图中“Project SDK”选择的是“JDK1.8”、“Java EE version”选择的是“Java EE 8”，“Application Server”选择的是“Tomcat 8">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/">
+
+
+
+
+
+  <title>5-IDEA和Tomcat整合新建JavaEE项目 | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5-IDEA和Tomcat整合新建JavaEE项目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:35:54+08:00">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/JavaEE规范/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JavaEE工程的创建"><a href="#JavaEE工程的创建" class="headerlink" title="JavaEE工程的创建"></a>JavaEE工程的创建</h1><ol>
+<li>打开软件，点击“Create New Project”。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_1.png" title="创建JavaEE工程_1"></li>
+<li>依次选择相应的“Project SDK”、“Java EE version”和“Application Server”（例如：在下图中“Project SDK”选择的是“JDK1.8”、“Java EE version”选择的是“Java EE 8”，“Application Server”选择的是“Tomcat 8.5.37”）,并选中“Web Application”，表示创建的是JavaWeb项目，然后点击“Next”。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_2.png" title="创建JavaEE工程_2"></li>
+<li>在上面输入新创建工程的名字并更改工程所在目录，在底下输入新创建工程下新建模块的名字并更改模块所在目录，然后点击“Finish”。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_3.png" title="创建JavaEE工程_3"></li>
+<li>项目创建成功后，会进入如下界面。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/创建JavaEE工程_4.png" title="创建JavaEE工程_4">
+</li>
+</ol>
+<h1 id="JavaEE项目的配置"><a href="#JavaEE项目的配置" class="headerlink" title="JavaEE项目的配置"></a>JavaEE项目的配置</h1><ol>
+<li>选中新创建的项目或者项目下的任意一个模块，点击右键，选中“Open Module Settings”。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置JavaEE工程_1.png" title="配置JavaEE工程_1"></li>
+<li>点击“Open Module Settings”后，可以看到如下的设置界面。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置JavaEE工程_2.png" title="配置JavaEE工程_2"></li>
+<li>在设置界面里共有五个配置项，分别为：Project、Modules、Libraries、Facets和Artifacts，下面将分别介绍这5个配置项。</li>
+</ol>
+<h2 id="Project配置项"><a href="#Project配置项" class="headerlink" title="Project配置项"></a>Project配置项</h2><p>选中Project配置项可以进入如下界面。<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Project配置项.png" title="Project配置项"></p>
+<p>在Project配置项下，可以配置如下信息：Project name、Project SDK、Project language level和Project compiler output。</p>
+<h3 id="Project-name"><a href="#Project-name" class="headerlink" title="Project name"></a>Project name</h3><p>定义工程的名称（一个Project里有多个module，每个module都可以是一个单独的应用）。</p>
+<h3 id="Project-SDK"><a href="#Project-SDK" class="headerlink" title="Project SDK"></a>Project SDK</h3><p>设置该项目使用的JDK，也可以在此处新添加其他版本的JDK。</p>
+<h3 id="Project-language-level"><a href="#Project-language-level" class="headerlink" title="Project language level"></a>Project language level</h3><p>这个和Project SDK类似。区别在于，假如你设置了JDK1.8，却只用到1.6的特性，那么这里可以设置语言等级为1.6，这个是限定项目编译检查时最低要求的JDK特性。</p>
+<h3 id="Project-compiler-output"><a href="#Project-compiler-output" class="headerlink" title="Project compiler output"></a>Project compiler output</h3><p>项目中的默认编译输出目录，实际上每个模块可以自己设置特殊的输出目录（Modules - (project) - Paths - Use module compile output path），所以这个设置有点鸡肋。</p>
+<h2 id="Modules配置项"><a href="#Modules配置项" class="headerlink" title="Modules配置项"></a>Modules配置项</h2><p>选中Modules配置项可以进入如下界面。<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Modules配置项.png" title="Modules配置项"></p>
+<p>在Modules配置项下，可以配置如下信息：增删模块和模块配置。</p>
+<h3 id="增删模块"><a href="#增删模块" class="headerlink" title="增删模块"></a>增删模块</h3><p>一个项目中可以有多个子项目），每个子项目相当于一个模块。一般我们的项目只有单独的一个模块，IDEA默认也是单子项目的形式，所以只需要配置一个模块。</p>
+<p>可以通过左边的“+-”来实现模块的增加与删除。</p>
+<h3 id="模块配置"><a href="#模块配置" class="headerlink" title="模块配置"></a>模块配置</h3><p>每个模块都对应了Sources、Path和Dependencies三大配置选项。</p>
+<ul>
+<li>Paths：可以指定项目的编译输出目录，即项目类和测试类的编译输出地址（替换掉了Project的默认输出地址）。</li>
+<li>Dependencies：项目的依赖。</li>
+</ul>
+<h4 id="模块配置的Sources配置项"><a href="#模块配置的Sources配置项" class="headerlink" title="模块配置的Sources配置项"></a>模块配置的Sources配置项</h4><p>选中模块配置的Sources配置项可以进入如下界面：<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/模块配置的Sources配置项.png" title="模块配置的Sources配置项"></p>
+<p>这里显示项目的目录资源，不同颜色代表不同的类型。</p>
+<h4 id="模块配置的Path配置项："><a href="#模块配置的Path配置项：" class="headerlink" title="模块配置的Path配置项："></a>模块配置的Path配置项：</h4><p>选中模块配置的Path配置项可以进入如下界面：<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/模块配置的Path配置项.png" title="模块配置的Path配置项"></p>
+<p>这里可以指定模块（即子项目）的编译输出目录，即项目类和测试类的编译输出地址，指定以后将替换掉Project的默认输出地址。我们可以更改这里的配置，使得编译后的文件能够放置在正确的目录。</p>
+<h4 id="模块配置的Dependencies配置项："><a href="#模块配置的Dependencies配置项：" class="headerlink" title="模块配置的Dependencies配置项："></a>模块配置的Dependencies配置项：</h4><p>选中模块配置的Dependencies配置项可以进入如下界面：<br></p>
+<p>这里可以添加、删除和编辑当前模块的依赖。在导包的过程中往往要对这里进行相关的配置。</p>
+<h2 id="Libraries配置项"><a href="#Libraries配置项" class="headerlink" title="Libraries配置项"></a>Libraries配置项</h2><p>选中Libraries配置项可以进入如下界面。<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Libraries配置项.png" title="Libraries配置项"></p>
+<p>这里是project级别的依赖库，这里的库可以被其他的module引用。</p>
+<h2 id="Facets配置项"><a href="#Facets配置项" class="headerlink" title="Facets配置项"></a>Facets配置项</h2><p>选中Facets配置项可以进入如下界面。<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Facets配置项.png" title="Facets配置项"></p>
+<p>在Facets配置项下，可以配置如下信息：Name、Deployment Ddscriptions和Web Resource Directories。</p>
+<h3 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h3><p>Name通常不需要修改，默认是Web。</p>
+<h3 id="Deployment-Ddscriptions"><a href="#Deployment-Ddscriptions" class="headerlink" title="Deployment Ddscriptions"></a>Deployment Ddscriptions</h3><p>这里Facets的部署文件描述符可以帮助我们的项目自动生成WEB-INF目录以及里面的web.xml。</p>
+<h3 id="Web-Resource-Directories。"><a href="#Web-Resource-Directories。" class="headerlink" title="Web Resource Directories。"></a>Web Resource Directories。</h3><p>这里的web资源目录用于指定我们web项目的那个目录，在这个目录里存放我们的web资源，该目录通常是web目录。部署的时候IDEA会把该目录下的所有内容复制到对应的out目录文件夹里。</p>
+<h2 id="Artifacts配置项"><a href="#Artifacts配置项" class="headerlink" title="Artifacts配置项"></a>Artifacts配置项</h2><p>选中Artifacts配置项可以进入如下界面。<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/Artifacts配置项.png" title="Artifacts配置项"></p>
+<p>这里配置的是项目的编译结果和各种资源文件，怎么组织在一起，最终打包发布。某个模块有了 Artifacts就可以部署到应用服务器中了。</p>
+<h1 id="IDEA和Tomcat整合新建JavaEE项目所需要的配置"><a href="#IDEA和Tomcat整合新建JavaEE项目所需要的配置" class="headerlink" title="IDEA和Tomcat整合新建JavaEE项目所需要的配置"></a>IDEA和Tomcat整合新建JavaEE项目所需要的配置</h1><p>开发web应用时，不同类型的文件有严格的存放规则，否则不仅可能会使web应用无法访问，还会导致web服务器启动报错。</p>
+<p>用Tomcat开发web应用时web应用的组成结构如下图所示：<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/web应用的组成结构.png" title="web应用的组成结构"></p>
+<p>用IDEA新创建一个项目时，默认的文件结构及配置如下图所示：<br><img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/IDEA新创建项目时默认的文件结构及配置.png" title="IDEA新创建项目时默认的文件结构及配置"></p>
+<p>可以看到在模块目录下有两个平级的目录：</p>
+<ol>
+<li>src：在src中存放的是Java的源代码，包括Servlet的Java源代码等。</li>
+<li>web：每个项目下的模块的web目录即对应用Tomcat开发web应用时的web应用目录。我们开发的web应用的文件结构必须严格遵守用Tomcat开发web应用时web应用的组成结构图。</li>
+</ol>
+<p>为了开发的方便，我们需要做出如下配置：</p>
+<ol>
+<li>更改指定模块的编译输出目录。</li>
+<li>配置Tomcat。</li>
+</ol>
+<h2 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h2><ol>
+<li>点击“Toolbar”中的配置Tomcat按钮，然后点击“Eidt Configurations”选项，进入Tomcat配置界面。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_1.png" title="配置Tomcat_1"></li>
+<li>在Tomcat配置界面中，主要配置如下配置选项：Server和Deployment。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_2.png" title="配置Tomcat_2"></li>
+<li>配置Server配置选项时，可以修改Tomcat服务器运行的端口号，一般可设置为80，这样从浏览器访问的时候就可以省略端口号。</li>
+<li>配置Deployment配置选项时，可以增删要部署的应用。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_4.png" title="配置Tomcat_4"></li>
+<li>配置Deployment配置选项时，还可以为要部署的应用设置虚拟映射，使得要部署的应用被关联到该Tomcat的webapps目录下（例如：下面的例子中，在浏览器输入<code>域名:端口号/practice_0/资源名</code>即可访问practice_0模块所对应的应用下的资源）。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/配置Tomcat_5.png" title="配置Tomcat_5">
+</li>
+</ol>
+<h2 id="更改指定模块的编译输出目录"><a href="#更改指定模块的编译输出目录" class="headerlink" title="更改指定模块的编译输出目录"></a>更改指定模块的编译输出目录</h2><p>我们可以对照用Tomcat开发web应用时web应用的组成结构图，在web目录下的WEB-INF目录下新建一个classes目录，用来存放相应的web应用资源。</p>
+<p>我们还可以通过配置Modules配置项中的Path配置项，来更改指定模块（即子项目）的编译输出目录，这里一般直接把编译输出目录改为web目录下的WEB-INF目录下的classes目录，这样在src目录下编写的java源文件，例如Servlet的Java源代码在编译后生成的字节码文件就会被直接放置到web目录下的WEB-INF目录下的classes目录，而不再需要我们手动放置了。</p>
+<p>具体配置过程如下：</p>
+<ol>
+<li>选中新创建的项目或者项目下的任意一个模块，点击右键，选中“Open Module Settings”，进入配置界面。</li>
+<li>在设置界面里选中Modules配置项进入模块配置界面，再点击Path配置项进入Path配置界面。</li>
+<li>选中“Use module compile output path”，将“Output path”修改为web目录下的WEB-INF目录下的classes目录，“Test output path”可以不做修改，具体如下图所示：<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/更改指定模块的编译输出目录.png" title="更改指定模块的编译输出目录">
+</li>
+</ol>
+<h2 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h2><p>我们可以对照用Tomcat开发web应用时web应用的组成结构图，在web目录下的WEB-INF目录下新建一个lib目录，用来存放Java类运行时所需要的jar包。</p>
+<p>这里给出一个例子，导入两个与处理文件上传有关的组件，具体的导包过程如下：</p>
+<ol>
+<li>先从官网下载相关的组件（即要导入的包），并放置到lib目录下。</li>
+<li>同时选中lib目录下的所有包，点击右键，选择“Add as Library…”选项。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/导包_1.png" title="导包_1"></li>
+<li>默认选择包的有效作用域为整个项目，这样同一个项目下的其他模块如果也需要使用这些包就不用再做相同的操作了。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/导包_2.png" title="导包_2"></li>
+<li>在设置界面里选中Modules配置项进入模块配置界面，再点击Dependencies配置项进入Dependencies配置界面，可以在该界面下看到已经建立了相应的依赖关系。<img src="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/导包_3.png" title="导包_3"></li>
+<li>一般在同一个项目下的其他模块如果也导入了相同的包，在Dependencies配置界面可能需要手动添加相应的依赖关系。点击“+”选择“Library”，再选择要建立的依赖关系。
+
+</li>
+</ol>
+<h1 id="IDEA运行Tomcat时的执行流程"><a href="#IDEA运行Tomcat时的执行流程" class="headerlink" title="IDEA运行Tomcat时的执行流程"></a>IDEA运行Tomcat时的执行流程</h1><p>在IDEA中的JavaEE项目，点击Run或Debug按钮就可以运行Tomcat，IDEA运行Tomcat时的执行流程如下：</p>
+<ol>
+<li>编译，IDEA在保存/自动保存后不会做编译，不像Eclipse的保存即编译，因此在运行server前会做一次编译。编译后的class文件存放在指定的项目编译输出目录下。</li>
+<li>根据Artifacts中的设定对目录结构进行创建。</li>
+<li>拷贝web资源的根目录下的所有文件到artifact的目录下。</li>
+<li>拷贝编译输出目录下的classes目录到artifact下的WEB-INF下。</li>
+<li>拷贝lib目录下所需的jar包到artifact下的WEB_INF下。</li>
+<li>运行server，运行成功后，如有需要，会自动打开浏览器访问指定URL。</li>
+</ol>
+<h2 id="SE项目和EE项目新建文件时区别"><a href="#SE项目和EE项目新建文件时区别" class="headerlink" title="SE项目和EE项目新建文件时区别"></a>SE项目和EE项目新建文件时区别</h2><p>当采用相对路径的写法新建文件时，SE项目和EE项目新建的文件最后所在的实际路径有很大区别，原因在于SE项目和EE项目相对路径相对的对象不同。</p>
+<p>JDK里面的相对路径，指的是相对java虚拟机调用的目录。在哪个目录下调用jvm，就相对的是哪个路径。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/08/JavaEE规范-4-Servlet/" rel="next" title="4-Servlet">
+                <i class="fa fa-chevron-left"></i> 4-Servlet
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/19/JavaEE规范-6-ServletRequest/" rel="prev" title="6-ServletRequest">
+                6-ServletRequest <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaEE工程的创建"><span class="nav-number">1.</span> <span class="nav-text">JavaEE工程的创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaEE项目的配置"><span class="nav-number">2.</span> <span class="nav-text">JavaEE项目的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Project配置项"><span class="nav-number">2.1.</span> <span class="nav-text">Project配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Project-name"><span class="nav-number">2.1.1.</span> <span class="nav-text">Project name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Project-SDK"><span class="nav-number">2.1.2.</span> <span class="nav-text">Project SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Project-language-level"><span class="nav-number">2.1.3.</span> <span class="nav-text">Project language level</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Project-compiler-output"><span class="nav-number">2.1.4.</span> <span class="nav-text">Project compiler output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules配置项"><span class="nav-number">2.2.</span> <span class="nav-text">Modules配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增删模块"><span class="nav-number">2.2.1.</span> <span class="nav-text">增删模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块配置"><span class="nav-number">2.2.2.</span> <span class="nav-text">模块配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模块配置的Sources配置项"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">模块配置的Sources配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块配置的Path配置项："><span class="nav-number">2.2.2.2.</span> <span class="nav-text">模块配置的Path配置项：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块配置的Dependencies配置项："><span class="nav-number">2.2.2.3.</span> <span class="nav-text">模块配置的Dependencies配置项：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Libraries配置项"><span class="nav-number">2.3.</span> <span class="nav-text">Libraries配置项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Facets配置项"><span class="nav-number">2.4.</span> <span class="nav-text">Facets配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Name"><span class="nav-number">2.4.1.</span> <span class="nav-text">Name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-Ddscriptions"><span class="nav-number">2.4.2.</span> <span class="nav-text">Deployment Ddscriptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-Resource-Directories。"><span class="nav-number">2.4.3.</span> <span class="nav-text">Web Resource Directories。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Artifacts配置项"><span class="nav-number">2.5.</span> <span class="nav-text">Artifacts配置项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA和Tomcat整合新建JavaEE项目所需要的配置"><span class="nav-number">3.</span> <span class="nav-text">IDEA和Tomcat整合新建JavaEE项目所需要的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">3.1.</span> <span class="nav-text">配置Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改指定模块的编译输出目录"><span class="nav-number">3.2.</span> <span class="nav-text">更改指定模块的编译输出目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导包"><span class="nav-number">3.3.</span> <span class="nav-text">导包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA运行Tomcat时的执行流程"><span class="nav-number">4.</span> <span class="nav-text">IDEA运行Tomcat时的执行流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SE项目和EE项目新建文件时区别"><span class="nav-number">4.1.</span> <span class="nav-text">SE项目和EE项目新建文件时区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>

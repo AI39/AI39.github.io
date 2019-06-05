@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ServletRequest简介ServletRequest由Servlet容器（例如：Tomcat）来管理，当客户请求到来时，容器创建一个ServletRequest对象，封装请求数据，同时创建一个ServletResponse对象，封装响应数据。这两个对象将被容器作为service()方法的参数传递给Servlet，Servlet利用ServletRequest对象获取客户端发来的请求数据，利">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6-ServletRequest">
+<meta property="og:url" content="http://yoursite.com/2019/05/19/JavaEE规范-6-ServletRequest/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="ServletRequest简介ServletRequest由Servlet容器（例如：Tomcat）来管理，当客户请求到来时，容器创建一个ServletRequest对象，封装请求数据，同时创建一个ServletResponse对象，封装响应数据。这两个对象将被容器作为service()方法的参数传递给Servlet，Servlet利用ServletRequest对象获取客户端发来的请求数据，利">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-21T11:38:10.607Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6-ServletRequest">
+<meta name="twitter:description" content="ServletRequest简介ServletRequest由Servlet容器（例如：Tomcat）来管理，当客户请求到来时，容器创建一个ServletRequest对象，封装请求数据，同时创建一个ServletResponse对象，封装响应数据。这两个对象将被容器作为service()方法的参数传递给Servlet，Servlet利用ServletRequest对象获取客户端发来的请求数据，利">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/19/JavaEE规范-6-ServletRequest/">
+
+
+
+
+
+  <title>6-ServletRequest | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/JavaEE规范-6-ServletRequest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">6-ServletRequest</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T21:20:47+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/JavaEE规范/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ServletRequest简介"><a href="#ServletRequest简介" class="headerlink" title="ServletRequest简介"></a>ServletRequest简介</h1><p>ServletRequest由Servlet容器（例如：Tomcat）来管理，当客户请求到来时，容器创建一个ServletRequest对象，封装请求数据，同时创建一个ServletResponse对象，封装响应数据。这两个对象将被容器作为service()方法的参数传递给Servlet，Servlet利用ServletRequest对象获取客户端发来的请求数据，利用ServletResponse对象发送响应数据。</p>
+<p>ServletRequest和ServletResponse对象分别代表了请求和响应，所以当我们要获取客户机（浏览器）提交过来的数据时，只需要找ServletRequest对象就行了。同理，当我们要向浏览器（客户端）输出数据时，只需要找ServletResponse对象就行了。</p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>每有一次客户请求，即使访问的是同一个URL，Servlet容器都会创建一个ServletRequest和ServletResponse对象。</li>
+</ul>
+<h1 id="HttpServletRequest简介"><a href="#HttpServletRequest简介" class="headerlink" title="HttpServletRequest简介"></a>HttpServletRequest简介</h1><p>HttpServletRequest接口是继承自ServletRequest接口的。增加了和HTTP相关的一些方法。而所谓request（在JSP中使用的）其实只是规范中的一个名称而已。它当然是一个对象，但并不是SUN提供的，这是由各个不同的Servlet提供商编写的，SUN只是规定这个类要实现HttpServletRequest接口，并且规定了各个方法的用途，但具体是什么类是由各个提供商自己决定的。</p>
+<h1 id="ServletRequest和HttpServletRequest接口的常用API"><a href="#ServletRequest和HttpServletRequest接口的常用API" class="headerlink" title="ServletRequest和HttpServletRequest接口的常用API"></a>ServletRequest和HttpServletRequest接口的常用API</h1><p>ServletRequest和HttpServletRequest接口提供了很多API，通过这些API，我们可以很方便的对请求报文做出解析。</p>
+<p>下表列出了ServletRequest接口提供的一些常用API：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String getRemoteAddr()</td>
+<td>获取发出请求的客户机的IP地址</td>
+</tr>
+<tr>
+<td>String getRemoteHost()</td>
+<td>获取发出请求的客户机的完整主机名</td>
+</tr>
+<tr>
+<td>int getRemotePort()</td>
+<td>获取客户机所使用的网络端口号</td>
+</tr>
+<tr>
+<td>String getLocalAddr()</td>
+<td>获取web服务器的IP地址</td>
+</tr>
+<tr>
+<td>String getLocalName()</td>
+<td>获取web服务器的主机名</td>
+</tr>
+<tr>
+<td>String getParameter(String name)</td>
+<td>获取客户机对应请求参数的信息</td>
+</tr>
+<tr>
+<td>String[] getParameterValues(String name)</td>
+<td>获取客户机对应请求参数的信息</td>
+</tr>
+<tr>
+<td>Enumeration<string> getParameterNames()</string></td>
+<td>获取客户机所有的请求参数</td>
+</tr>
+<tr>
+<td>RequestDispatcher getRequestDispatcher(String path)</td>
+<td>获取请求分发器</td>
+</tr>
+<tr>
+<td>void setCharacterEncoding(String env) throws UnsupportedEncodingException</td>
+<td>设置编码方式</td>
+</tr>
+</tbody>
+</table>
+<p>因为ServletRequest接口继承了ServletRequest接口，所以上面的方法除了ServletRequest接口引用的对象之外，HttpServletRequest接口引用的对象同样能调用。</p>
+<p>下表列出了HttpServletRequest接口提供的一些常用API：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>StringBuffer getRequestURL()</td>
+<td>获取客户端发出请求时的完整URL</td>
+</tr>
+<tr>
+<td>String getRequestURI()</td>
+<td>获取请求行中的资源名部分，不包括应用名</td>
+</tr>
+<tr>
+<td>String getMethod()</td>
+<td>获取客户机的请求方式</td>
+</tr>
+<tr>
+<td>String getHeader(String name)</td>
+<td>获取客户机对应请求头的信息</td>
+</tr>
+<tr>
+<td>Enumeration<string> getHeaders(String name)</string></td>
+<td>获取客户机对应请求头的信息</td>
+</tr>
+<tr>
+<td>Enumeration<string> getHeaderNames()</string></td>
+<td>获取客户机所有的请求头</td>
+</tr>
+</tbody>
+</table>
+<p>上面的方法只有HttpServletRequest接口引用的对象能调用，ServletRequest接口引用的对象无法调用。</p>
+<h1 id="ServletRequest和HttpServletRequest的常见应用"><a href="#ServletRequest和HttpServletRequest的常见应用" class="headerlink" title="ServletRequest和HttpServletRequest的常见应用"></a>ServletRequest和HttpServletRequest的常见应用</h1><p>ServletRequest和HttpServletRequest的常见应用主要有：各种表单输入项数据的获取和实现请求转发。</p>
+<h2 id="各种表单输入项数据的获取"><a href="#各种表单输入项数据的获取" class="headerlink" title="各种表单输入项数据的获取"></a>各种表单输入项数据的获取</h2><p>通过ServletRequest和HttpServletRequest对象，可以获得页面中各种表单（即form）的输入项数据。</p>
+<h3 id="请求参数的中文乱码问题"><a href="#请求参数的中文乱码问题" class="headerlink" title="请求参数的中文乱码问题"></a>请求参数的中文乱码问题</h3><p>通过ServletRequest和HttpServletRequest对象来获得页面中各种表单（即form）的输入项数据时，可能会遇到请求参数的中文乱码问题。这主要是由于浏览器发送数据和服务器接收数据时的编解码不一致造成的。</p>
+<p>浏览器发送数据时，页面指定是什么编码方式，浏览器就按什么编码方式来发送数据。例如：在Html文件中往往设置<code>charset=&quot;utf-8&quot;</code>，这样就告诉了浏览器发送数据的时候按照utf-8进行编码。</p>
+<p>如果没有在ServletRequest和HttpServletRequest对象中设置对应的解码方式，ServletRequest和HttpServletRequest对象会按照默认的解码方式对从浏览器发送过来的数据进行解码。</p>
+<p>可以调用setCharacterEncoding()方法来设置解码方式，只要ServletRequest和HttpServletRequest对象的解码方式和浏览器发送数据时的编码方式一样，就能正确解码。</p>
+<p>下面给出一个例子：</p>
+<p>假设在浏览器通过POST方式向服务器提供了一个form表单，在表单中有一项username的值输入的是中文。这时候，如果想正确的在服务器这边解码出正确的值，就必须设置ServletRequest和HttpServletRequest对象中的解码方式为utf-8。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Servlet1</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        req.setCharacterEncoding(<span class="string">"utf-8"</span>);                                               <span class="comment">//解决中文乱码问题，将request中的编解码改成utf-8</span></span><br><span class="line">        String username = req.getParameter(<span class="string">"username"</span>);                                  <span class="comment">//获取浏览器发送的表单中的username对应的值</span></span><br><span class="line">        System.out.println(username);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现请求转发和包含"><a href="#实现请求转发和包含" class="headerlink" title="实现请求转发和包含"></a>实现请求转发和包含</h2><p>请求转发和包含指一个web资源收到客户端请求后，通知服务器去调用另外一个web资源进行处理。</p>
+<p>一个Servlet对象无法获得另一个Servelt对象的引用；如果需要多个Servlet组件共同协作（数据传递），只能使用Servelt规范为我们提供的两种方式：</p>
+<ol>
+<li>请求转发：Servlet(源组件)先对客户请求做一些预处理操作，然后把请求转发给其他web组件（目标组件）来完成包括生成响应结果在内的后续操作。</li>
+<li>包含：Servelt(源组件)把其他web组件（目标组件）生成的响应结果包含到自身的响应结果中。</li>
+</ol>
+<p>请求转发和包含的共同点如下：</p>
+<ol>
+<li>源组件和目标组件处理的都是同一个客户请求，源组件和目标组件共享同一个ServeltRequest（或HttpServletRequest）和ServletResponse（或HttpServletResponse）对象。</li>
+<li>目标组件都可以为Servlet、JSP或HTML文档。</li>
+<li>都依赖javax.servlet.RequestDispatcher接口。</li>
+</ol>
+<p>ServletRequest和HttpServletRequest对象提供了一个getRequestDispatcher()方法，该方法返回一个RequestDispatcher对象（即请求分发器），调用这个对象的forward()方法和include()分别可以实现请求转发和包含。</p>
+<h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><h3 id="包含"><a href="#包含" class="headerlink" title="包含"></a>包含</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/12/JavaEE规范-5-IDEA和Tomcat整合新建JavaEE项目/" rel="next" title="5-IDEA和Tomcat整合新建JavaEE项目">
+                <i class="fa fa-chevron-left"></i> 5-IDEA和Tomcat整合新建JavaEE项目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/21/JDBC-1-JDBC简介/" rel="prev" title="1-JDBC简介">
+                1-JDBC简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ServletRequest简介"><span class="nav-number">1.</span> <span class="nav-text">ServletRequest简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HttpServletRequest简介"><span class="nav-number">2.</span> <span class="nav-text">HttpServletRequest简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ServletRequest和HttpServletRequest接口的常用API"><span class="nav-number">3.</span> <span class="nav-text">ServletRequest和HttpServletRequest接口的常用API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ServletRequest和HttpServletRequest的常见应用"><span class="nav-number">4.</span> <span class="nav-text">ServletRequest和HttpServletRequest的常见应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#各种表单输入项数据的获取"><span class="nav-number">4.1.</span> <span class="nav-text">各种表单输入项数据的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求参数的中文乱码问题"><span class="nav-number">4.1.1.</span> <span class="nav-text">请求参数的中文乱码问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现请求转发和包含"><span class="nav-number">4.2.</span> <span class="nav-text">实现请求转发和包含</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发"><span class="nav-number">4.2.1.</span> <span class="nav-text">请求转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包含"><span class="nav-number">4.2.2.</span> <span class="nav-text">包含</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>

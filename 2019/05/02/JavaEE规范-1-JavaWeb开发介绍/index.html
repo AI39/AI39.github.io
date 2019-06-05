@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="web资源web在英语中表示的是网页的意思，它用于表示Internet SERVER上供外界访问的资源。 Internet上供外界访问的web资源分为：静态web资源和动态web资源。 静态web资源静态网站具有如下的特点：  静态网站是最初的建站方式，浏览者所看到的每个页面是建站者上传到服务器上的一个html（htm）文件，这种网站每增加、删除、修改一个页面，都必须重新对服务器的文件进行一次下载">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1-JavaWeb开发介绍">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="web资源web在英语中表示的是网页的意思，它用于表示Internet SERVER上供外界访问的资源。 Internet上供外界访问的web资源分为：静态web资源和动态web资源。 静态web资源静态网站具有如下的特点：  静态网站是最初的建站方式，浏览者所看到的每个页面是建站者上传到服务器上的一个html（htm）文件，这种网站每增加、删除、修改一个页面，都必须重新对服务器的文件进行一次下载">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/WebLogic启动界面.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/WebSphereAS启动界面.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/Tomcat启动界面.png">
+<meta property="og:updated_time" content="2019-05-08T15:07:22.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1-JavaWeb开发介绍">
+<meta name="twitter:description" content="web资源web在英语中表示的是网页的意思，它用于表示Internet SERVER上供外界访问的资源。 Internet上供外界访问的web资源分为：静态web资源和动态web资源。 静态web资源静态网站具有如下的特点：  静态网站是最初的建站方式，浏览者所看到的每个页面是建站者上传到服务器上的一个html（htm）文件，这种网站每增加、删除、修改一个页面，都必须重新对服务器的文件进行一次下载">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/WebLogic启动界面.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/">
+
+
+
+
+
+  <title>1-JavaWeb开发介绍 | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">1-JavaWeb开发介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-02T21:28:54+08:00">
+                2019-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/JavaEE规范/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="web资源"><a href="#web资源" class="headerlink" title="web资源"></a>web资源</h1><p>web在英语中表示的是网页的意思，它用于表示Internet SERVER上供外界访问的资源。</p>
+<p>Internet上供外界访问的web资源分为：静态web资源和动态web资源。</p>
+<h2 id="静态web资源"><a href="#静态web资源" class="headerlink" title="静态web资源"></a>静态web资源</h2><p>静态网站具有如下的特点：</p>
+<ol>
+<li>静态网站是最初的建站方式，浏览者所看到的每个页面是建站者上传到服务器上的一个html（htm）文件，这种网站每增加、删除、修改一个页面，都必须重新对服务器的文件进行一次下载上传。网页内容一经发布到网站服务器上，无论是否有用户访问，每个静态网页的内容都是保存在网站服务器上的，也就是说，静态网页是实实在在保存在服务器上的文件，每个网页都是一个独立的文件。</li>
+<li>静态网页的内容相对稳定，因此容易被搜索引擎检索。</li>
+<li>静态网页没有数据库的支持，在网站制作和维护方面工作量较大，因此当网站信息量很大时完全依靠静态网页制作方式比较困难。</li>
+<li>静态网页的交互性较差，在功能方面有较大的限制。</li>
+</ol>
+<h2 id="动态web资源"><a href="#动态web资源" class="headerlink" title="动态web资源"></a>动态web资源</h2><p>这里说的动态网页，与网页上的各种动画、滚动字幕等视觉上的“动态效果”没有直接关系，动态网页也可以是纯文字内容的，也可以是包含各种动画的内容，这些只是网页具体内容的表现形式，无论网页是否具有动态效果，采用动态网站技术生成的网页都称为动态网页。</p>
+<p>动态网站在页面里嵌套了程序，这种网站对一些框架相同，更新较快的信息页面进行内容与形式的分离，将信息内容以记录的形式存入了网站的数据库中，以便于网站各处的调用。这样，我们看到的一个页面，可能在服务器上不一一对应某个html的文件了，网页框架里套了很多数据库里的记录中的内容。此外动态网页是与静态网页相对应的，也就是说，网页URL的后缀不是.htm、.html、.shtml、.xml等静态网页的常见形式，而是以.asp、.jsp、.php、.perl、.cgi等形式为后缀。</p>
+<p>动态网站的概念现在还没有统一标准，但都具备以下几个基本特征：</p>
+<ol>
+<li>交互性：网页会根据用户的要求和选择而动态地改变和响应，浏览器作为客户端，成为一个动态交流的桥梁，动态网页的交互性也是今后 Web 发展的潮流。</li>
+<li>自动更新：即无须手动更新HTML文档，便会自动生成新页面，可以大大节省工作量。</li>
+<li>因时因人而变：即当不同时间、不同用户访问同一网址时会出现不同页面。</li>
+</ol>
+<h1 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h1><p>web服务器(程序)即web应用程序。</p>
+<p>不管什么web资源，想被远程计算机访问，都必须有一个与之对应的网络通信程序，当用户来访问时，这个网络通信程序读取web资源数据，并把数据发送给来访者。</p>
+<p>web服务器就是这样一个程序，它用于完成底层网络通迅。使用这些服务器，用户只需要关注web资源怎么编写，而不需要关心资源如何发送到客户端手中，从而极大的减轻了开发者的开发工作量。</p>
+<p>所以学习web开发，需要先安装一台web服务器(程序)，然后再在web服务器中开发相应的web资源，供用户使用浏览器访问。</p>
+<h2 id="常见的JavaWeb服务器"><a href="#常见的JavaWeb服务器" class="headerlink" title="常见的JavaWeb服务器"></a>常见的JavaWeb服务器</h2><p>常见的JavaWeb服务器如下：</p>
+<ol>
+<li>WebLogic：WebLogic是BEA公司的产品，是目前应用“最广泛的Web服务器”，支持JavaEE规范，而且不断的完善以适应新的开发要求，在金融电信领域使用较多。启动界面如下图：<img src="/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/WebLogic启动界面.png" title="WebLogic启动界面"></li>
+<li>WebSphereAS：WebSphereAS是IBM公司的产品，支持JavaEE规范，在大型企业和政府机关使用较多。启动界面如下图：<img src="/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/WebSphereAS启动界面.png" title="WebSphereAS启动界面"></li>
+<li>Tomcat：该服务器支持全部JSP以及Servlet规范，且免费。启动界面如下图：<img src="/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/Tomcat启动界面.png" title="Tomcat启动界面">
+</li>
+</ol>
+<h1 id="JavaWeb应用程序"><a href="#JavaWeb应用程序" class="headerlink" title="JavaWeb应用程序"></a>JavaWeb应用程序</h1><p>web应用程序指供浏览器访问的程序，通常也简称为web应用。</p>
+<p>一个web应用由多个静态web资源和动态web资源组成，如:html、css、js文件、Jsp文件、java程序、支持的jar包、配置文件等。</p>
+<p>web应用开发好后，若想供外界访问，需要把web应用所在目录交给web服务器管理，这个过程称之为虚似目录的映射，应用在webapps目录下无需映射。</p>
+<h2 id="JavaWeb应用的组成结构"><a href="#JavaWeb应用的组成结构" class="headerlink" title="JavaWeb应用的组成结构"></a>JavaWeb应用的组成结构</h2><p>开发web应用时，不同类型的文件有严格的存放规则，否则不仅可能会使web应用无法访问，还会导致web服务器启动报错。</p>
+<h1 id="web开发的前景"><a href="#web开发的前景" class="headerlink" title="web开发的前景"></a>web开发的前景</h1><p>目前软件开发的两种架构是：c/s（客户端/服务器架构）和b/s（浏览器/服务器架构）。</p>
+<p>随着网络带宽的不断提升，云计算概念的提出，浏览器只要足够强大，c/s架构立马就会被淘汰，不仅c/s架构会被淘汰，软件最终都会消失、操作系统都可以没有，最终将会是b/s架构的天下，也就是浏览器+搜索引擎的天下。所有现在桌面软件提供的功能，最后都由网站提供，也就是说，将来打开电脑就是一个浏览器，想要什么服务，通过搜索引擎一找，就可以在网上找到相应的服务，直接拿来用用就是了。</p>
+<h2 id="桌面应用（c-s）和web应用（b-s）的比较"><a href="#桌面应用（c-s）和web应用（b-s）的比较" class="headerlink" title="桌面应用（c/s）和web应用（b/s）的比较"></a>桌面应用（c/s）和web应用（b/s）的比较</h2><p>桌面应用（c/s）和web应用（b/s）的优缺点分别如下：</p>
+<h3 id="桌面应用（c-s）"><a href="#桌面应用（c-s）" class="headerlink" title="桌面应用（c/s）"></a>桌面应用（c/s）</h3><ol>
+<li>优点：<ul>
+<li>交互性强。</li>
+<li>运行性能好。</li>
+<li>网络负载小。</li>
+<li>非常安全。</li>
+<li>易于维护和追踪用户的状态。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>系统整合性差。</li>
+<li>配置和维护成本高。</li>
+<li>对客户机的要求高。</li>
+<li>用户培训时间长。</li>
+<li>软件伸缩性差。</li>
+<li>软件复用性差。</li>
+</ul>
+</li>
+</ol>
+<h3 id="web应用（b-s）"><a href="#web应用（b-s）" class="headerlink" title="web应用（b/s）"></a>web应用（b/s）</h3><ol>
+<li>优点：<ul>
+<li>标准化的开发、发布和浏览方式</li>
+<li>客户机不需要安装专门的客户机程序，只需要安装浏览器即可。</li>
+<li>软件升级容易。</li>
+<li>易于在异构平台上进行配置集成。</li>
+<li>降低对用户的培训费用。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>客户界面开发不如桌面应用程序方便，难以实现复杂的客户界面。</li>
+<li>响应速度慢，难以满足实时系统的需求。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/28/Java语言-32-网络编程/" rel="next" title="32-网络编程">
+                <i class="fa fa-chevron-left"></i> 32-网络编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/" rel="prev" title="2-Tomcat的使用及配置">
+                2-Tomcat的使用及配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#web资源"><span class="nav-number">1.</span> <span class="nav-text">web资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态web资源"><span class="nav-number">1.1.</span> <span class="nav-text">静态web资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态web资源"><span class="nav-number">1.2.</span> <span class="nav-text">动态web资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web服务器"><span class="nav-number">2.</span> <span class="nav-text">web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的JavaWeb服务器"><span class="nav-number">2.1.</span> <span class="nav-text">常见的JavaWeb服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaWeb应用程序"><span class="nav-number">3.</span> <span class="nav-text">JavaWeb应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaWeb应用的组成结构"><span class="nav-number">3.1.</span> <span class="nav-text">JavaWeb应用的组成结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web开发的前景"><span class="nav-number">4.</span> <span class="nav-text">web开发的前景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#桌面应用（c-s）和web应用（b-s）的比较"><span class="nav-number">4.1.</span> <span class="nav-text">桌面应用（c/s）和web应用（b/s）的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#桌面应用（c-s）"><span class="nav-number">4.1.1.</span> <span class="nav-text">桌面应用（c/s）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web应用（b-s）"><span class="nav-number">4.1.2.</span> <span class="nav-text">web应用（b/s）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>

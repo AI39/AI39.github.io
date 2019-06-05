@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Tomcat简介Tomcat是在SUN公司推出的小型Servlet/JSP调试工具的基础上发展起来的一个优秀的Servlet容器，Tomcat本身完全用Java语言编写。目前是Apache开源软件组织的一个软件项目，得到了广大开源代码志愿者的大力支持，且可以和目前大部分的主流Web服务器(Apache服务器)一起工作，它运行稳定、可靠且高效。已成为目前开发企业JavaWeb应用的最佳Servlet">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2-Tomcat的使用及配置">
+<meta property="og:url" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="Tomcat简介Tomcat是在SUN公司推出的小型Servlet/JSP调试工具的基础上发展起来的一个优秀的Servlet容器，Tomcat本身完全用Java语言编写。目前是Apache开源软件组织的一个软件项目，得到了广大开源代码志愿者的大力支持，且可以和目前大部分的主流Web服务器(Apache服务器)一起工作，它运行稳定、可靠且高效。已成为目前开发企业JavaWeb应用的最佳Servlet">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Tomcat正常启动.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Tomcat的体系结构.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Service向外提供服务示意图.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Container的体系结构.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Server处理一个HTTP请求的过程.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/web应用的组成结构.png">
+<meta property="og:updated_time" content="2019-05-16T08:05:56.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2-Tomcat的使用及配置">
+<meta name="twitter:description" content="Tomcat简介Tomcat是在SUN公司推出的小型Servlet/JSP调试工具的基础上发展起来的一个优秀的Servlet容器，Tomcat本身完全用Java语言编写。目前是Apache开源软件组织的一个软件项目，得到了广大开源代码志愿者的大力支持，且可以和目前大部分的主流Web服务器(Apache服务器)一起工作，它运行稳定、可靠且高效。已成为目前开发企业JavaWeb应用的最佳Servlet">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Tomcat正常启动.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/">
+
+
+
+
+
+  <title>2-Tomcat的使用及配置 | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2-Tomcat的使用及配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T22:32:14+08:00">
+                2019-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/JavaEE规范/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Tomcat简介"><a href="#Tomcat简介" class="headerlink" title="Tomcat简介"></a>Tomcat简介</h1><p>Tomcat是在SUN公司推出的小型Servlet/JSP调试工具的基础上发展起来的一个优秀的Servlet容器，Tomcat本身完全用Java语言编写。目前是Apache开源软件组织的一个软件项目，得到了广大开源代码志愿者的大力支持，且可以和目前大部分的主流Web服务器(Apache服务器)一起工作，它运行稳定、可靠且高效。已成为目前开发企业JavaWeb应用的最佳Servlet容器选择之一。</p>
+<h1 id="Tomcat受欢迎的原因"><a href="#Tomcat受欢迎的原因" class="headerlink" title="Tomcat受欢迎的原因"></a>Tomcat受欢迎的原因</h1><ol>
+<li>Tomcat是Apache的核心项目之一，也被SUN视作Servlet/JSP容器的一个重要参考实现而加以支持。因此SUN最新的Servlet/JSP规范，往往能够很快地在Tomcat的新版本中得到体现。</li>
+<li>Tomcat是一个小巧精致的web应用服务器，配置、安装、运行、部署web应用都很简单，这让用户能够很快地上手使用。</li>
+<li>开源软件的生命力，往往与其社区的状况有紧密的联系。在一个健康、活跃的社区，用户的疑问通常能够及时地解决，用户的反馈往往能够得到有效地处理，这样会吸引更多的用户加入到社区中来；反过来，不断扩大的用户群，也会促进社区的发展。Tomcat所拥有的优秀社区，对开发者而言，无论用什么标准来评价，都是充满吸引力的。</li>
+<li>编写良好的文档，是开发者在开发中最好的帮手之一。Apache在开源社区中，无疑是撰写文档方面的佼佼者。</li>
+<li>因为开源和免费的特性，使得用户可以自由无障碍地下载、安装、使用Tomcat。这也是 Tomcat 能够被广泛使用的重要原因之一。</li>
+</ol>
+<h1 id="Tomcat官方站点"><a href="#Tomcat官方站点" class="headerlink" title="Tomcat官方站点"></a>Tomcat官方站点</h1><ul>
+<li><a href="http://tomcat.apache.org" target="_blank" rel="noopener">http://tomcat.apache.org</a></li>
+</ul>
+<h1 id="获取Tomcat安装程序包"><a href="#获取Tomcat安装程序包" class="headerlink" title="获取Tomcat安装程序包"></a>获取Tomcat安装程序包</h1><ol>
+<li>tar.gz文件是Linux操作系统下的安装版本。</li>
+<li>zip文件是Windows系统下的压缩版本（建议）。</li>
+<li>exe文件是Windows系统下的安装版本。</li>
+</ol>
+<h1 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h1><ol>
+<li>通过下载的压缩包文件解压即可安装（建议）。</li>
+<li>通过下载的exe文件安装</li>
+</ol>
+<h1 id="Tomcat的目录结构"><a href="#Tomcat的目录结构" class="headerlink" title="Tomcat的目录结构"></a>Tomcat的目录结构</h1><p>Tomcat的目录层次结构如下：</p>
+<ol>
+<li>bin：存放启动和关闭Tomcat的脚本文件。</li>
+<li>conf：存放Tomcat服务器的各种配置文件。</li>
+<li>lib：存放Tomcat服务器的支撑jar包。</li>
+<li>logs：存放Tomcat的日志文件。</li>
+<li>temp：存放Tomcat运行时产生的临时文件。</li>
+<li>webapps：web应用所在目录，即供外界访问的web资源的存放目录。</li>
+<li>work：Tomcat的工作目录。</li>
+</ol>
+<h1 id="Tomcat的启动与关闭"><a href="#Tomcat的启动与关闭" class="headerlink" title="Tomcat的启动与关闭"></a>Tomcat的启动与关闭</h1><ol>
+<li>启动：安装完成后，找到bin目录下的startup.bat（Windows系统）或startup.sh（Linux系统），双击打开即可启动Tomcat。Tomcat启动后，打开浏览器，输入<code>http://localhost:8080/</code>，显示如下界面代表安装成功：<img src="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Tomcat正常启动.png" title="Tomcat正常启动"></li>
+<li>关闭：安装完成后，找到bin目录下的shutdown.bat（Windows系统）或shutdown.sh（Linux系统），双击打开即可启动Tomcat。</li>
+</ol>
+<h1 id="修改Tomcat的端口号"><a href="#修改Tomcat的端口号" class="headerlink" title="修改Tomcat的端口号"></a>修改Tomcat的端口号</h1><p>找到conf目录下的server.xml文件，双击打开，找到如下代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面的代码中可以看到，Tomcat作为服务器的默认端口号为8080。可以在这里对Tomcat的端口号进行修改。例如：可以改成80端口。</p>
+<p>80端口是为HTTP（HyperText Transport Protocol）即超文本传输协议开放的，可以通过HTTP地址（即常说的“网址”）加“:80”来访问网站，因为浏览网页服务默认的端口号都是80，因此只需输入网址即可，不用输入“:80”了。</p>
+<h1 id="Tomcat的组成结构"><a href="#Tomcat的组成结构" class="headerlink" title="Tomcat的组成结构"></a>Tomcat的组成结构</h1><p>Tomcat本身由一系列可配置的组件构成，其中核心组件是Servlet容器组件，它是所有其他Tomcat组件的顶层容器，其他组件按照一定的格式要求配置在这个顶层容器中。每个组件都可以在Tomcat安装目录/conf/server.xml文件中进行配置，每个Tomcat组件在server.xml文件中对应一种配置元素。</p>
+<p>以下由Server.xml的结构来看Tomcat各组件之间的关系：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span>&gt;</span>                                                   <span class="comment">&lt;!-- 顶层类元素，代表整个Servlet容器组件，可以包括一个或多个&lt;Service&gt;元素 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Service</span>&gt;</span>                                              <span class="comment">&lt;!-- 顶层类元素，包含一个&lt;Engine&gt;元素以及一个或多个多个&lt;Connecter&gt;元素，这些&lt;Connecter&gt;共享一个&lt;Engine&gt; --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Connector</span>&gt;</span>                                        <span class="comment">&lt;!-- 连接器类元素，代表通信接口，是和客户程序实际交互的组件，负责接收客户请求，以及向客户返回响应 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Engine</span>&gt;</span>                                   <span class="comment">&lt;!-- 容器类元素，处理在同一个&lt;Servlet&gt;中所有&lt;Connecter&gt;接收到的客户请求，包含一个或多个&lt;Host&gt;元素 --&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">Host</span>&gt;</span>                             <span class="comment">&lt;!-- 容器类元素，代表一个虚拟主机（网站），包含一个或多个&lt;Context&gt;元素， --&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">Context</span>&gt;</span>                  <span class="comment">&lt;!-- 容器类元素，代表了运行在虚拟主机上的单个web应用 --&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Connector</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Tomcat的体系结构"><a href="#Tomcat的体系结构" class="headerlink" title="Tomcat的体系结构"></a>Tomcat的体系结构</h2><p>由Server.xml的结构可以看出Tomcat的体系架构如下图所示：<br><img src="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Tomcat的体系结构.png" title="Tomcat的体系结构"></p>
+<p>从上图中可以看出，Tomcat中最顶层的容器是Server，代表着整个服务器，一个Tomcat只有一个Server，一个Server可以包含多个Service，一个Service只有一个Container，但是可以有多个Connectors，这是因为一个服务可以有多个连接，如同时提供Http和Https链接，也可以提供相同协议不同端口的连接，示意图如下：<br><img src="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Service向外提供服务示意图.png" title="Service向外提供服务示意图"></p>
+<p>Tomca的心脏是两个组件：Connecter和Container。一个Container可以选择多个Connecter，多个Connector和一个Container就形成了一个Service。Service可以对外提供服务，但是Service还要一个生存的环境，必须要有人能够给她生命、掌握其生死大权，那就是Server。所以整个Tomcat的生命周期由Server控制。</p>
+<h2 id="Tomcat的组件"><a href="#Tomcat的组件" class="headerlink" title="Tomcat的组件"></a>Tomcat的组件</h2><h3 id="Connector组件"><a href="#Connector组件" class="headerlink" title="Connector组件"></a>Connector组件</h3><p>一个Connecter将在某个指定的端口上侦听客户请求，接收浏览器发过来的tcp连接请求，创建一个Request和Response对象分别用于和请求端交换数据，然后会产生一个线程来处理这个请求并把产生的Request和Response对象传给处理Engine(Container中的一部分)，从Engine出获得响应并返回客户。</p>
+<p>Tomcat中有两个经典的Connector，一个直接侦听来自Browser的HTTP请求，另外一个来自其他的WebServer请求。Cotote HTTP/1.1 Connector在端口8080处侦听来自客户Browser的HTTP请求，Coyote JK2 Connector在端口8009处侦听其他Web Server的Servlet/JSP请求，这两个端口可通过配置文件进行修改。</p>
+<p>Connector最重要的功能就是接收连接请求然后分配线程让Container来处理这个请求，所以这必然是多线程的，多线程的处理是Connector设计的核心。</p>
+<h3 id="Container组件"><a href="#Container组件" class="headerlink" title="Container组件"></a>Container组件</h3><p>Container的体系结构如下图所示：<br><img src="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Container的体系结构.png" title="Container的体系结构"></p>
+<p>Container是容器的父接口，该容器的设计用的是典型的责任链的设计模式，它由四个自容器组件构成，分别是Engine、Host、Context、Wrapper。这四个组件是负责关系，存在包含关系。通常一个Servlet class对应一个Wrapper，如果有多个Servlet定义多个Wrapper，就要定义一个更高的Container，如Context。</p>
+<p>Context还可以定义在父容器Host中，Host不是必须的，但是要运行war程序，就必须要Host，因为war中必有web.xml文件，这个文件的解析就需要Host了，如果要有多个Host就要定义一个top容器Engine了。而Engine没有父容器了，一个Engine代表一个完整的Servlet引擎。</p>
+<p>下面简要介绍一下各个容器：</p>
+<ol>
+<li>Engine容器：Engine容器比较简单，它只定义了一些基本的关联关系。</li>
+<li>Host容器：Host是Engine的字容器，一个Host在Engine中代表一个虚拟主机，这个虚拟主机的作用就是运行多个应用，它负责安装和展开这些应用，并且标识这个应用以便能够区分它们。它的子容器通常是Context，它除了关联子容器外，还有就是保存一个主机应该有的信息。</li>
+<li>Context代表Servlet的Context，它具备了Servlet运行的基本环境，理论上只要有Context就能运行Servlet了。简单的Tomcat可以没有Engine和Host。Context最重要的功能就是管理它里面的Servlet实例，Servlet实例在Context中是以Wrapper出现的，还有一点就是Context如何才能找到正确的Servlet来执行它呢？Tomcat5以前是通过一个Mapper类来管理的，Tomcat5以后这个功能被移到了request中，在前面的时序图中就可以发现获取子容器都是通过request来分配的。</li>
+<li>Wrapper容器：Wrapper代表一个Servlet，它负责管理一个Servlet，包括的Servlet的装载、初始化、执行以及资源回收。Wrapper是最底层的容器，它没有子容器了，所以调用它的addChild将会报错。Wrapper的实现类是StandardWrapper，StandardWrapper还实现了拥有一个Servlet初始化信息的ServletConfig，由此看出StandardWrapper将直接和Servlet的各种信息打交道。</li>
+</ol>
+<h3 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h3><p>Tomcat还有其它重要的组件，如安全组件security、logger日志组件、session、mbeans、naming等其它组件。这些组件共同为Connector和Container提供必要的服务。</p>
+<h1 id="Tomcat-Server处理一个HTTP请求的过程"><a href="#Tomcat-Server处理一个HTTP请求的过程" class="headerlink" title="Tomcat Server处理一个HTTP请求的过程"></a>Tomcat Server处理一个HTTP请求的过程</h1><p>Tomcat Server处理一个HTTP请求的过程如下图所示：<br><img src="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/Server处理一个HTTP请求的过程.png" class="Tomcat" title="Tomcat Server处理一个HTTP请求的过程"></p>
+<p>这里以访问localhost/test/index.jsp为例，分析Tomcat Server处理一个HTTP请求的过程：</p>
+<ol>
+<li>用户点击网页内容，请求被发送到本机对应端口，被在那里监听的Coyote HTTP/1.1 Connector获得。</li>
+<li>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。</li>
+<li>Engine获得请求localhost/test/index.jsp，匹配所有的虚拟主机Host。</li>
+<li>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机），名为localhost的Host获得请求/test/index.jsp，匹配它所拥有的所有的Context。Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为“ ”的Context去处理）。</li>
+<li>path=“/test”的Context获得请求/index.jsp，在它的mapping table中寻找出对应的Servlet。Context匹配到URL PATTERN为*.jsp的Servlet,对应于JspServlet类。</li>
+<li>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet()或doPost()方法，执行业务逻辑、数据存储等程序。</li>
+<li>Context把执行完之后的HttpServletResponse对象返回给Host。</li>
+<li>Host把HttpServletResponse对象返回给Engine。</li>
+<li>Engine把HttpServletResponse对象返回Connector。</li>
+<li>Connector把HttpServletResponse对象返回给客户Browser。</li>
+</ol>
+<h1 id="用Tomcat开发web应用时web应用的组成结构"><a href="#用Tomcat开发web应用时web应用的组成结构" class="headerlink" title="用Tomcat开发web应用时web应用的组成结构"></a>用Tomcat开发web应用时web应用的组成结构</h1><p>开发web应用时，不同类型的文件有严格的存放规则，否则不仅可能会使web应用无法访问，还会导致web服务器启动报错。</p>
+<p>用Tomcat开发web应用时web应用的组成结构如下图所示：<br><img src="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/web应用的组成结构.png" title="web应用的组成结构"></p>
+<h1 id="用Tomcat发布web应用"><a href="#用Tomcat发布web应用" class="headerlink" title="用Tomcat发布web应用"></a>用Tomcat发布web应用</h1><h2 id="直接部署"><a href="#直接部署" class="headerlink" title="直接部署"></a>直接部署</h2><p>位于Tomcat的webapps目录下的应用，可以直接通过<code>域名+端口号+应用名+资源名</code>来访问，其中有需要特别注意的是，ROOT应用在访问时，不需要输入应用名。</p>
+<p>因此，我们可以直接在webapps目录下，新建一个目录，该目录就是你的应用名，然后在里面添加你所需要供他人访问的静态或动态web资源。</p>
+<p>在Tomcat安装完之后，webapps目录下自带了一些应用，例如：examples应用，且在该应用下有index.html这一资源。我们可以在开启Tomcat之后，通过在浏览器输入<code>localhost:8080/examples/index.html</code>来访问examples应用下的index.html这一资源。</p>
+<h2 id="虚拟映射"><a href="#虚拟映射" class="headerlink" title="虚拟映射"></a>虚拟映射</h2><p>正常情况下，我们发布应用到webapps目录下就可以了，但是如果我们不想把应用放到该目录下，我们也可以通过某种方式将其他目录下的应用关联到该webapps目录下，等同于在webapps目录下。</p>
+<p>将其他目录下的应用关联到webapps目录下有两种方式：在conf目录下的sever.xml文件的Host节点下新增Context节点或在conf/catalina/localhost目录下新增应用名.xml文件。</p>
+<h3 id="在conf目录下的sever-xml文件的Host节点下新增Context节点"><a href="#在conf目录下的sever-xml文件的Host节点下新增Context节点" class="headerlink" title="在conf目录下的sever.xml文件的Host节点下新增Context节点"></a>在conf目录下的sever.xml文件的Host节点下新增Context节点</h3><p>例如：在E盘下有一个test应用，我们可以在conf目录下的sever.xml文件的Host节点下新增如下代码来新增Context节点：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/test"</span> <span class="attr">docBase</span>=<span class="string">"E:\\test"</span>&gt;</span>                <span class="comment">&lt;!-- 新增加的代码 --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>现在可以直接在浏览器通过<code>域名:端口号/test/test应用下的资源名</code>来访问test应用下的资源了。</p>
+<h3 id="conf-catalina-localhost目录下新增应用名-xml文件"><a href="#conf-catalina-localhost目录下新增应用名-xml文件" class="headerlink" title="conf/catalina/localhost目录下新增应用名.xml文件"></a>conf/catalina/localhost目录下新增应用名.xml文件</h3><p>例如：在E盘下有一个test应用，我们可以在conf/catalina/localhost目录下新增test.xml文件，文件内容如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"E:\test"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>现在可以直接在浏览器通过<code>域名:端口号/test/test应用下的资源名</code>来访问test应用下的资源了。</p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>在xml文件中，不需要像上一种方式一样设置<code>path=&quot;path=&quot;/test</code>，因为文件名已经说明了path是什么。</li>
+</ul>
+<h2 id="访问时省略资源名"><a href="#访问时省略资源名" class="headerlink" title="访问时省略资源名"></a>访问时省略资源名</h2><p>在Tomcat的conf/web.xml文件中，有一个welcome-file-list，这里面的页面会在应用没有指定具体的资源名称时，依次加载对应的文件。</p>
+<p>例如：在web.xml文件中welcome-file-list的默认配置是：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这表明当访问应用时没有指定具体的资源名称时，会默认先加载所访问的应用下的index.html资源，如果没有这一资源，就会加载index.htm资源，如果没有，就会加载index.jsp资源，如果还是没有，就会报404错误。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/02/JavaEE规范-1-JavaWeb开发介绍/" rel="next" title="1-JavaWeb开发介绍">
+                <i class="fa fa-chevron-left"></i> 1-JavaWeb开发介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/JavaEE规范-3-HTTP/" rel="prev" title="3-HTTP">
+                3-HTTP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat简介"><span class="nav-number">1.</span> <span class="nav-text">Tomcat简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat受欢迎的原因"><span class="nav-number">2.</span> <span class="nav-text">Tomcat受欢迎的原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat官方站点"><span class="nav-number">3.</span> <span class="nav-text">Tomcat官方站点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取Tomcat安装程序包"><span class="nav-number">4.</span> <span class="nav-text">获取Tomcat安装程序包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Tomcat"><span class="nav-number">5.</span> <span class="nav-text">安装Tomcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat的目录结构"><span class="nav-number">6.</span> <span class="nav-text">Tomcat的目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat的启动与关闭"><span class="nav-number">7.</span> <span class="nav-text">Tomcat的启动与关闭</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改Tomcat的端口号"><span class="nav-number">8.</span> <span class="nav-text">修改Tomcat的端口号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat的组成结构"><span class="nav-number">9.</span> <span class="nav-text">Tomcat的组成结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat的体系结构"><span class="nav-number">9.1.</span> <span class="nav-text">Tomcat的体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat的组件"><span class="nav-number">9.2.</span> <span class="nav-text">Tomcat的组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connector组件"><span class="nav-number">9.2.1.</span> <span class="nav-text">Connector组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Container组件"><span class="nav-number">9.2.2.</span> <span class="nav-text">Container组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他组件"><span class="nav-number">9.2.3.</span> <span class="nav-text">其他组件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat-Server处理一个HTTP请求的过程"><span class="nav-number">10.</span> <span class="nav-text">Tomcat Server处理一个HTTP请求的过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用Tomcat开发web应用时web应用的组成结构"><span class="nav-number">11.</span> <span class="nav-text">用Tomcat开发web应用时web应用的组成结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用Tomcat发布web应用"><span class="nav-number">12.</span> <span class="nav-text">用Tomcat发布web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接部署"><span class="nav-number">12.1.</span> <span class="nav-text">直接部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟映射"><span class="nav-number">12.2.</span> <span class="nav-text">虚拟映射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在conf目录下的sever-xml文件的Host节点下新增Context节点"><span class="nav-number">12.2.1.</span> <span class="nav-text">在conf目录下的sever.xml文件的Host节点下新增Context节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#conf-catalina-localhost目录下新增应用名-xml文件"><span class="nav-number">12.2.2.</span> <span class="nav-text">conf/catalina/localhost目录下新增应用名.xml文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问时省略资源名"><span class="nav-number">12.3.</span> <span class="nav-text">访问时省略资源名</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>

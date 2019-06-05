@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="HTTP简介web浏览器与web服务器之间的一问一答的交互过程必须遵循一定的规则，而这个规则就是HTTP协议。 HTTP是HyperText Transfer Protocol(超文本传输协议)的简写，它是TCP/IP协议族的一个应用层协议，用于定义web浏览器与web服务器之间交换数据的过程及数据本身的格式。 HTTP协议是学习web开发的基石，不深入了解HTTP协议，就不能说掌握了web开发，">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3-HTTP">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/index.html">
+<meta property="og:site_name" content="新世纪Coder战士的博客">
+<meta property="og:description" content="HTTP简介web浏览器与web服务器之间的一问一答的交互过程必须遵循一定的规则，而这个规则就是HTTP协议。 HTTP是HyperText Transfer Protocol(超文本传输协议)的简写，它是TCP/IP协议族的一个应用层协议，用于定义web浏览器与web服务器之间交换数据的过程及数据本身的格式。 HTTP协议是学习web开发的基石，不深入了解HTTP协议，就不能说掌握了web开发，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/HTTP1.0的基本运行方式.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/HTTP1.1的基本运行方式.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/HTTP请求报文示例.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/HTTP响应报文示例.png">
+<meta property="og:updated_time" content="2019-05-12T08:20:55.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3-HTTP">
+<meta name="twitter:description" content="HTTP简介web浏览器与web服务器之间的一问一答的交互过程必须遵循一定的规则，而这个规则就是HTTP协议。 HTTP是HyperText Transfer Protocol(超文本传输协议)的简写，它是TCP/IP协议族的一个应用层协议，用于定义web浏览器与web服务器之间交换数据的过程及数据本身的格式。 HTTP协议是学习web开发的基石，不深入了解HTTP协议，就不能说掌握了web开发，">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/HTTP1.0的基本运行方式.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/">
+
+
+
+
+
+  <title>3-HTTP | 新世纪Coder战士的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">新世纪Coder战士的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/JavaEE规范-3-HTTP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="新世纪Coder战士">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/caihong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="新世纪Coder战士的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">3-HTTP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T23:05:50+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/" itemprop="url" rel="index">
+                    <span itemprop="name">做一个有骨气的Coder</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/" itemprop="url" rel="index">
+                    <span itemprop="name">我的JavaEE哪有这么熟练</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/做一个有骨气的Coder/我的JavaEE哪有这么熟练/JavaEE规范/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h1><p>web浏览器与web服务器之间的一问一答的交互过程必须遵循一定的规则，而这个规则就是HTTP协议。</p>
+<p>HTTP是HyperText Transfer Protocol(超文本传输协议)的简写，它是TCP/IP协议族的一个应用层协议，用于定义web浏览器与web服务器之间交换数据的过程及数据本身的格式。</p>
+<p>HTTP协议是学习web开发的基石，不深入了解HTTP协议，就不能说掌握了web开发，更无法管理和维护一些复杂的web站点。</p>
+<h1 id="HTTP协议的版本"><a href="#HTTP协议的版本" class="headerlink" title="HTTP协议的版本"></a>HTTP协议的版本</h1><p>HTTP协议主要有HTTP1.0和HTTP1.1。</p>
+<h2 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP/1.0"></a>HTTP/1.0</h2><p>基于HTTP协议的客户机/服务器模式的信息交换过程，如下图所示：<br><img src="/2019/05/06/JavaEE规范-3-HTTP/HTTP1.0的基本运行方式.png" title="HTTP1.0的基本运行方式"></p>
+<p>它分为四个过程：建立连接、发送请求消息、发送响应消息、关闭连接。</p>
+<h2 id="HTTP1-0的特点"><a href="#HTTP1-0的特点" class="headerlink" title="HTTP1.0的特点"></a>HTTP1.0的特点</h2><ol>
+<li>浏览器与web服务器的连接过程是短暂的，每次连接只处理一个请求和响应。对每一个页面的访问，浏览器与web服务器都要建立一次单独的连接。</li>
+<li>浏览器到WEB服务器之间的所有通讯都是完全独立分开的请求和响应。</li>
+<li>是无状态连接。</li>
+</ol>
+<h2 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP/1.1"></a>HTTP/1.1</h2><p>基于HTTP协议的客户机/服务器模式的信息交换过程，如下图所示：<br><img src="/2019/05/06/JavaEE规范-3-HTTP/HTTP1.1的基本运行方式.png" title="HTTP1.1的基本运行方式"></p>
+<h2 id="HTTP1-1的特点"><a href="#HTTP1-1的特点" class="headerlink" title="HTTP1.1的特点"></a>HTTP1.1的特点</h2><ol>
+<li>在一个TCP连接上可以传送多个HTTP请求和响应。</li>
+<li>多个请求和响应过程可以重叠。</li>
+<li>增加了更多的请求头和响应头，比如Host、If-Unmodified-Since请求头等。</li>
+</ol>
+<h1 id="一次完整的HTTP事务"><a href="#一次完整的HTTP事务" class="headerlink" title="一次完整的HTTP事务"></a>一次完整的HTTP事务</h1><p>一次完整的HTTP事务包含如下几个过程：</p>
+<ol>
+<li>域名解析。</li>
+<li>发起TCP的三次握手。</li>
+<li>连接成功后，发起HTTP请求。</li>
+<li>服务器响应HTTP请求。</li>
+<li>浏览器解析HTML代码，并请求HTML代码中的资源（如JS、CSS、图片等）。</li>
+<li>浏览器对页面进行渲染呈现给用户。</li>
+</ol>
+<h2 id="HTTP事务"><a href="#HTTP事务" class="headerlink" title="HTTP事务"></a>HTTP事务</h2><p>HTTP事务 = 请求命令 + 响应结果</p>
+<h1 id="HTTP请求报文和响应报文的格式"><a href="#HTTP请求报文和响应报文的格式" class="headerlink" title="HTTP请求报文和响应报文的格式"></a>HTTP请求报文和响应报文的格式</h1><h2 id="HTTP请求报文"><a href="#HTTP请求报文" class="headerlink" title="HTTP请求报文"></a>HTTP请求报文</h2><p>客户端连上服务器后，向服务器请求某个web资源，称之为客户端向服务器发送了一个HTTP请求。</p>
+<p>一个完整的HTTP请求包括如下内容：请求行、请求头、空行、请求正文。</p>
+<p>具体的格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请求行: 请求方式 请求URL HTTP版本</span><br><span class="line">请求头: 名:值</span><br><span class="line">        名:值</span><br><span class="line">        ...</span><br><span class="line">空行:</span><br><span class="line">请求正文：HTTP要传送的内容</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>其中的一些请求头头和正文都是可选的，请求头和正文内容之间要用空行隔开。</li>
+</ul>
+<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>请求行的格式如下：请求方式    资源路径    HTTP版本号<crlf>。例如：<code>GET /temp3o116.shtml HTTP/1.1</code>。</crlf></p>
+<p>请求方式如下：GET、POST、HEAD、OPTIONS、DELETE、PUT。</p>
+<p>用户如没有设置，默认情况下浏览器向服务器发送的都是GET请求，例如在浏览器直接输地址访问，点超链接访问等都是GET，用户如想把请求方式改为POST，可通过更改表单的提交方式实现。</p>
+<p>不管POST或GET，都用于向服务器请求某个web资源，这两种方式的区别主要表现在数据传递上。</p>
+<h4 id="GET方式"><a href="#GET方式" class="headerlink" title="GET方式"></a>GET方式</h4><p>如请求方式为GET方式，则可以在请求的URL地址后以?的形式带上交给服务器的数据，多个数据之间以&amp;进行分隔，例如：<br><code>GET /mail/1.html?name=abc&amp;password=xyz HTTP/1.1</code></p>
+<p>GET方式的特点：在URL地址后附带的参数是有限制的，其数据容量通常不能超过1K。</p>
+<h4 id="POST方式"><a href="#POST方式" class="headerlink" title="POST方式"></a>POST方式</h4><p>如请求方式为POST方式，则可以在请求的正文内容中向服务器发送数据。</p>
+<p>Post方式的特点：传送的数据量无限制。</p>
+<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>请求头字段用于客户端在请求消息中向服务器传递附加信息，主要包括客户端可以接受的数据类型(MIME类型)、压缩方法、语言以及发出请求的超链接所属页面的URL地址等信息。</p>
+<p>使用消息头，可以实现HTTP客户机与服务器之间的条件请求和应答，消息头相当于服务器和浏览器之间的一些暗号指令。</p>
+<p>每个消息头包含一个头字段名称，然后依次是冒号、空格、值、回车和换行符。</p>
+<p>常用的请求头如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>请求头</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept</td>
+<td>浏览器可接受的MIME类型</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>浏览器通过这个请求头告诉服务器，它支持哪种字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>浏览器能够进行解码的数据编码方式，比如gzip</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到。可以在浏览器中进行设置</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>初始URL中的主机和端口</td>
+</tr>
+<tr>
+<td>Referer</td>
+<td>包含一个URL，用户从该URL代表的页面出发访问当前请求的页面（防盗链）</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>内容类型</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>服务器利用这个头与服务器的文件进行比对，如果一致，则告诉浏览器从缓存中直接读取文件</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>浏览器类型</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>表示请求消息正文的长度</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>表示是否需要持久连接。如果服务器看到这里的值为“Keep -Alive”，或者看到请求使用的是HTTP 1.1（HTTP 1.1默认进行持久连接），表示需要持久连接</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>这是最重要的请求头信息之一</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>请求时间</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>请求头字段名是不区分大小写的，但习惯上讲每个单词的第一个字母大写。</li>
+<li>整个请求头部分中的各行消息头可按任何顺序排列。</li>
+<li>许多请求头字段都允许客户端在值部分指定多个可接受的选项，多个选项之间以逗号分隔。</li>
+<li>有些头字段可以出现多次。</li>
+<li>MIME类型针对html文档而言是text/html；针对图片而言是image/png、image/gif等；针对音频资源是audio/mp3等。</li>
+</ol>
+<p>下面是通过Fiddle抓包工具获取的一个HTTP请求报文：<br><img src="/2019/05/06/JavaEE规范-3-HTTP/HTTP请求报文示例.png" title="HTTP请求报文示例"></p>
+<h2 id="HTTP响应报文"><a href="#HTTP响应报文" class="headerlink" title="HTTP响应报文"></a>HTTP响应报文</h2><p>一个HTTP响应代表服务器向客户端回送的数据。<br>一个完整的HTTP响应包括如下内容：响应行、响应头、空格、响应正文。</p>
+<p>具体的格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">响应行: 协议版本 状态码 原因短语</span><br><span class="line">响应头: 名: 值</span><br><span class="line">        名: 值</span><br><span class="line">        ...</span><br><span class="line">空行:</span><br><span class="line">响应主体: HTTP要传输的内容</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>其中的一些响应头和正文都是可选的，响应头和正文内容之间要用空行隔开。</li>
+</ul>
+<h2 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h2><p>响应行的格式如下：HTTP版本号　状态码　原因叙述<crlf>。例如：<code>HTTP 1.1 200 OK</code>。</crlf></p>
+<p>状态码用于表示服务器对请求的各种不同处理结果和状态，它是一个三位的十进制数。响应状态码分为5类，使用最高位为1到5来进行分类。</p>
+<p>常见的状态码如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>请求头</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200~299</td>
+<td>表示成功接收请求并已完成整个处理过程。例如：200表示一切正常，返回的是正常请求结果</td>
+</tr>
+<tr>
+<td>300~399</td>
+<td>（重定向）为完成请求，客户需进一步细化请求。例如：301、302、307表示临时重定向，指出被请求的文档已被临时移到别处，此文档的新的URL在Location响应头中给出</td>
+</tr>
+<tr>
+<td>400~499</td>
+<td>客户端的请求有错误。例如：404表示找不到，服务器上不存在客户机所请求的资源</td>
+</tr>
+<tr>
+<td>500~599</td>
+<td>服务器端出现错误。例如：500表示服务端的程序发生错误</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h3><p>响应头字段用于向客户端传递附加信息。</p>
+<p>常用的响应头如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>响应头</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location</td>
+<td>指示新的资源的位置</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>指示服务器的类型。例如：apache tomcat</td>
+</tr>
+<tr>
+<td>Content-Encoding</td>
+<td>服务器发送的数据采用的编码类型。例如：gzip</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>告诉浏览器正文的长度。</td>
+</tr>
+<tr>
+<td>Content-Language</td>
+<td>服务发送的文本的语言。例如：zh-cn</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>服务器发送的内容的MIME类型。例如：text/html</td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td>文件的最后修改时间</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>指示客户端刷新频率，单位是秒</td>
+</tr>
+<tr>
+<td>Content-Disposition</td>
+<td>指示客户端保存文件</td>
+</tr>
+<tr>
+<td>Set-Cookie</td>
+<td>服务端将生成的cookie发送给浏览器端，浏览器再次访问服务器时，会带上cookie请求头</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>声明了一个网页或URL地址不再被浏览器缓存的时间，一旦超过了这个时间，浏览器都应该联系原始服务器</td>
+</tr>
+<tr>
+<td>Cache-Control</td>
+<td>指定所有缓存机制</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>表示是否需要持久连接</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>响应时间</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>浏览器看到Content-Type这个响应头，就会把当前的资源当做content-type响应头里面的内容类型来解析。如果响应头Content-Type设置的值是text/html，而返回的响应是图片资源，则图片可能会无法正常加载。</li>
+</ol>
+<p>下面是通过Fiddle抓包工具获取的一个HTTP响应报文：<br><img src="/2019/05/06/JavaEE规范-3-HTTP/HTTP响应报文示例.png" title="HTTP响应报文示例"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/04/JavaEE规范-2-Tomcat的使用及配置/" rel="next" title="2-Tomcat的使用及配置">
+                <i class="fa fa-chevron-left"></i> 2-Tomcat的使用及配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/08/JavaEE规范-4-Servlet/" rel="prev" title="4-Servlet">
+                4-Servlet <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/caihong.png" alt="新世纪Coder战士">
+            
+              <p class="site-author-name" itemprop="name">新世纪Coder战士</p>
+              <p class="site-description motion-element" itemprop="description">这个人很宅。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AI39" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP简介"><span class="nav-number">1.</span> <span class="nav-text">HTTP简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP协议的版本"><span class="nav-number">2.</span> <span class="nav-text">HTTP协议的版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-0"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP/1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP1-0的特点"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP1.0的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">2.3.</span> <span class="nav-text">HTTP/1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP1-1的特点"><span class="nav-number">2.4.</span> <span class="nav-text">HTTP1.1的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一次完整的HTTP事务"><span class="nav-number">3.</span> <span class="nav-text">一次完整的HTTP事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP事务"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP事务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP请求报文和响应报文的格式"><span class="nav-number">4.</span> <span class="nav-text">HTTP请求报文和响应报文的格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求报文"><span class="nav-number">4.1.</span> <span class="nav-text">HTTP请求报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求行"><span class="nav-number">4.1.1.</span> <span class="nav-text">请求行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET方式"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">GET方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST方式"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">POST方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求头"><span class="nav-number">4.1.2.</span> <span class="nav-text">请求头</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP响应报文"><span class="nav-number">4.2.</span> <span class="nav-text">HTTP响应报文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应行"><span class="nav-number">4.3.</span> <span class="nav-text">响应行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应头"><span class="nav-number">4.3.1.</span> <span class="nav-text">响应头</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">新世纪Coder战士</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true}});</script></body>
+</html>
